@@ -8,10 +8,12 @@
     :root { --primary: #2c3e50; --secondary: #ecf0f1; --accent: #2980b9; }
     body { margin:0; font-family: Arial, sans-serif; color: var(--primary); background: var(--secondary); }
     header { background: var(--primary); color: white; padding: 1em 0; text-align: center; }
+    header p { margin: 0.3em 0; }
     nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin:0; padding:0; }
     nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
     section { max-width: 800px; margin: 2em auto; background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     section h2 { border-bottom: 2px solid var(--accent); padding-bottom: 0.5em; margin-bottom: 1em; }
+    ul { padding-left: 1.2em; }
     .project { margin-bottom: 2em; }
     .project img { max-width: 100%; border-radius: 4px; }
     .memo { font-family: 'Courier New', monospace; background: #f7f7f7; padding: 1em; border-left: 4px solid var(--accent); }
@@ -21,7 +23,8 @@
 <body>
   <header id="top">
     <h1>Shawn Krishnan</h1>
-    <p>Artificial Intelligence Engineering Graduate | CMU '25</p>
+    <p>shawnakk@andrew.cmu.edu | (917) 719-1646 | <a href="https://www.linkedin.com/in/shawnkrishnan/" style="color: var(--accent);" target="_blank">LinkedIn</a></p>
+    <p>Master of Science in Artificial Intelligence Engineering, Carnegie Mellon University '25</p>
     <nav>
       <ul>
         <li><a href="#about">About Me</a></li>
@@ -40,21 +43,51 @@
   </section>
   <section id="resume">
     <h2>Resume</h2>
-    <h3>Skills</h3>
-    <ul>
-      <li>Python, PySpark, PyTorch</li>
-      <li>Machine Learning & Deep Learning</li>
-      <li>Web Development: HTML, CSS, JavaScript</li>
-      <li>Data Analysis & Visualization</li>
-    </ul>
+    <p><a href="Shawn_Krishnan_CMU_ML_RESUME.pdf" target="_blank">Download Full Resume (PDF)</a></p>
     <h3>Education</h3>
     <ul>
-      <li>Bachelor of Science in Artificial Intelligence Engineering, Carnegie Mellon University, May 2025</li>
+      <li>Master of Science in Artificial Intelligence Engineering, Carnegie Mellon University — GPA: 3.76/4.00 (May 2025)</li>
+      <li>Bachelor of Science in Mechanical Engineering, Carnegie Mellon University — GPA: 3.74/4.00 (Dec 2023)</li>
     </ul>
     <h3>Work Experience</h3>
     <ul>
-      <li>Research Assistant, CMU AI Lab — Improved PDE model performance by 15% through low-rank adaptation techniques.</li>
-      <li>Data Engineering Intern, Google Cloud — Built Spark pipelines processing 1TB of news data daily.</li>
+      <li><strong>Mechanical AI Lab Research Assistant</strong>, Carnegie Mellon College of Engineering (Aug 2024 – Present)
+        <ul>
+          <li>Research on PDE optimization using Deep Learning and Physics-Informed Neural Networks for turbulent flow simulation.</li>
+        </ul>
+      </li>
+      <li><strong>AI/NLP Systems Engineering Intern</strong>, Comtech Telecommunications Inc (May 2024 – Aug 2024)
+        <ul>
+          <li>Developed AWS Lambda functions using NLP for 911 operator decision support.</li>
+          <li>Integrated multi-modal Naive Bayes classifier into PSAP APIs, enhancing translation and response efficiency.</li>
+          <li>Built Flask API to package chatbot session data for analysis by emergency systems.</li>
+        </ul>
+      </li>
+      <li><strong>Technical Sales Intern</strong>, Ingredion Inc (May 2023 – Aug 2023)
+        <ul>
+          <li>Conducted Salesforce analysis identifying 38% additional sales opportunity.</li>
+          <li>Presented market findings to executives, influencing strategic decisions.</li>
+        </ul>
+      </li>
+      <li><strong>Graduate & Undergraduate TA</strong>, Carnegie Mellon University (Jan 2023 – Dec 2023)
+        <ul>
+          <li>Supported courses: Mechanical Engineering Seminar, Mechanical Design Methods, Thermodynamics.</li>
+          <li>Managed grading and classroom sessions, promoting positive learning environment.</li>
+        </ul>
+      </li>
+    </ul>
+    <h3>Machine Learning Projects</h3>
+    <ul>
+      <li><strong>Multi-Agent RL with LLMs for Safe Path Planning</strong>: Hierarchical RL in Isaac Gym with GPT-4 integrated for obstacle classification and dynamic penalties.</li>
+      <li><strong>Cloud-Based ML with FIFA Dataset</strong>: Deployed neural network on GCP; improved test accuracy from 80% to 95% through hyperparameter tuning using PyTorch and Spark.</li>
+      <li><strong>Autonomous Tesla Vehicle Control Simulation</strong>: Developed EKF-SLAM in Webots for localization in GPS-limited environments; achieved &lt;5m average trajectory deviation.</li>
+    </ul>
+    <h3>Skills & Activities</h3>
+    <ul>
+      <li><strong>Software/Tools:</strong> Python, PyTorch, TensorFlow, Spark, AWS, Docker, Kubernetes, MATLAB, SolidWorks</li>
+      <li><strong>Databases:</strong> SQL, NoSQL, Neo4j, MongoDB</li>
+      <li><strong>Activities:</strong> NCAA DIII Varsity Track & Field, 3× Dean’s List, University Honors</li>
+      <li><strong>Languages:</strong> English (Native), Tamil (Fluent)</li>
     </ul>
   </section>
   <section id="project1" class="project">
