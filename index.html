@@ -1,1 +1,109 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shawn Krishnan | Web Portfolio</title>
+  <style>
+    :root { --primary: #2c3e50; --secondary: #ecf0f1; --accent: #2980b9; }
+    body { margin:0; font-family: Arial, sans-serif; color: var(--primary); background: var(--secondary); }
+    header { background: var(--primary); color: white; padding: 1em 0; text-align: center; }
+    nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin:0; padding:0; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
+    section { max-width: 800px; margin: 2em auto; background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    section h2 { border-bottom: 2px solid var(--accent); padding-bottom: 0.5em; margin-bottom: 1em; }
+    .project { margin-bottom: 2em; }
+    .project img { max-width: 100%; border-radius: 4px; }
+    .memo { font-family: 'Courier New', monospace; background: #f7f7f7; padding: 1em; border-left: 4px solid var(--accent); }
+    .memo h3 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <h1>Shawn Krishnan</h1>
+    <p>Artificial Intelligence Engineering Graduate | CMU '25</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#project1">Project 1</a></li>
+        <li><a href="#project2">Project 2</a></li>
+        <li><a href="#project3">Project 3</a></li>
+        <li><a href="#project4">Project 4</a></li>
+        <li><a href="#memo">Justification Memo</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Driven AI Engineering graduate from Carnegie Mellon University, passionate about machine learning, fluid dynamics research, and web development. Skilled in PySpark, PyTorch, and full-stack development.</p>
+  </section>
+  <section id="resume">
+    <h2>Resume</h2>
+    <h3>Skills</h3>
+    <ul>
+      <li>Python, PySpark, PyTorch</li>
+      <li>Machine Learning & Deep Learning</li>
+      <li>Web Development: HTML, CSS, JavaScript</li>
+      <li>Data Analysis & Visualization</li>
+    </ul>
+    <h3>Education</h3>
+    <ul>
+      <li>Bachelor of Science in Artificial Intelligence Engineering, Carnegie Mellon University, May 2025</li>
+    </ul>
+    <h3>Work Experience</h3>
+    <ul>
+      <li>Research Assistant, CMU AI Lab — Improved PDE model performance by 15% through low-rank adaptation techniques.</li>
+      <li>Data Engineering Intern, Google Cloud — Built Spark pipelines processing 1TB of news data daily.</li>
+    </ul>
+  </section>
+  <section id="project1" class="project">
+    <h2>Project 1: Accent-Conditioned TTS</h2>
+    <p><strong>Introduction & Social Value:</strong> This project explores bilingual accent synthesis to improve inclusivity in voice interfaces.</p>
+    <div>
+      <img src="project1.png" alt="Accent-Conditioned TTS screenshot">
+    </div>
+    <h3>IMRD / IDEC Format</h3>
+    <p><strong>Methods:</strong> Implemented Grad-TTS diffusion model with LoRA finetuning.</p>
+    <p><strong>Results:</strong> Achieved 95% accent identification accuracy in user study.</p>
+    <p><strong>Discussion:</strong> Demonstrated feasibility of dynamic accent blending.</p>
+  </section>
+  <section id="project2" class="project">
+    <h2>Project 2: DPOT Foundation Model Benchmarking</h2>
+    <p><strong>Introduction & Social Value:</strong> Benchmarked PDE foundation models for climate simulation acceleration.</p>
+    <img src="project2.png" alt="Benchmark chart">
+    <h3>IMRD / IDEC Format</h3>
+    <p><strong>Methods:</strong> Trained DPOT, Poseidon, Transolver on Darcy dataset.</p>
+    <p><strong>Results:</strong> DPOT reduced inference time by 40% with &lt;5% error.</p>
+    <p><strong>Discussion:</strong> Outperforms traditional solvers for real-time applications.</p>
+  </section>
+  <section id="project3" class="project">
+    <h2>Project 3: PPO-Based Humanoid Locomotion</h2>
+    <p><strong>Introduction & Social Value:</strong> Developed adaptive prosthetic control to enhance mobility.</p>
+    <img src="project3.png" alt="Humanoid locomotion simulation">
+    <h3>IMRD / IDEC Format</h3>
+    <p><strong>Methods:</strong> Applied PPO with imitation learning on MuJoCo environment.</p>
+    <p><strong>Results:</strong> Improved gait stability by 20% in simulation.</p>
+    <p><strong>Discussion:</strong> Path toward real-world prosthetic deployment.</p>
+  </section>
+  <section id="project4" class="project">
+    <h2>Project 4: Neural Tracking Frame Prediction</h2>
+    <p><strong>Introduction & Social Value:</strong> Predicts player movements to enhance sports analytics.</p>
+    <img src="project4.png" alt="Player tracking frame">
+    <h3>IMRD / IDEC Format</h3>
+    <p><strong>Methods:</strong> CNN-LSTM architecture trained on NFL tracking data.</p>
+    <p><strong>Results:</strong> Achieved 90% accuracy in frame prediction.</p>
+    <p><strong>Discussion:</strong> Assists coaches in strategy analysis.</p>
+  </section>
+  <section id="memo">
+    <h2>Justification Memo</h2>
+    <div class="memo">
+      <h3>To: Liz Walker</h3>
+      <p>From: Shawn Krishnan<br>Date: May 2, 2025<br>Subject: Web Portfolio Justification</p>
+      <p>I am targeting AI research roles in the tech industry that prioritize machine learning and web development expertise. This portfolio emphasizes those skills through concise project descriptions and quantifiable achievements.</p>
+      <p>Each section was tailored to highlight my analytical abilities and technical proficiency, aligning with employer expectations. The resume section places key skills at the top for quick scanning. Project descriptions follow the IMRD format to clearly communicate objectives and outcomes.</p>
+      <p>Thank you for reviewing my portfolio. <a href="#top">View the full portfolio</a>.</p>
+    </div>
+  </section>
+</body>
+</html>
