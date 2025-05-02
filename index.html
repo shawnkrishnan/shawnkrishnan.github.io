@@ -15,7 +15,9 @@
     section h2 { border-bottom: 2px solid var(--accent); padding-bottom: 0.5em; margin-bottom: 1em; }
     ul { padding-left: 1.2em; }
     .project { margin-bottom: 2em; }
+    .project figure { margin: 1em 0; }
     .project img { max-width: 100%; border-radius: 4px; }
+    .project figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 0.5em; }
     .memo { font-family: 'Courier New', monospace; background: #f7f7f7; padding: 1em; border-left: 4px solid var(--accent); }
     .memo h3 { margin-top: 0; }
   </style>
@@ -39,7 +41,9 @@
   </header>
   <section id="about">
     <h2>About Me</h2>
-    <p>Driven AI Engineering graduate from Carnegie Mellon University, passionate about machine learning, fluid dynamics research, and web development. Skilled in PySpark, PyTorch, and full-stack development.</p>
+    <p>Driven professional with a solid analytical background in Machine Learning and Mechanical Engineering from Carnegie Mellon University. Skilled in problem-solving, effective communication, and strategic thinking. I am a engineer adept at breaking down complex problems, leading decisively, and delivering results.
+
+        Previously Systems Engineer at Comtech Telecommunications focused on Natural Language Processing for 911 emergency response augmentation.</p>
   </section>
   <section id="resume">
     <h2>Resume</h2>
@@ -53,34 +57,33 @@
     <ul>
       <li><strong>Mechanical AI Lab Research Assistant</strong>, Carnegie Mellon College of Engineering (Aug 2024 – Present)
         <ul>
-          <li>Research on PDE optimization using Deep Learning and Physics-Informed Neural Networks for turbulent flow simulation.</li>
+          <li>Researched PDE optimization via deep learning and physics-informed neural networks for turbulent flow simulation.</li>
         </ul>
       </li>
       <li><strong>AI/NLP Systems Engineering Intern</strong>, Comtech Telecommunications Inc (May 2024 – Aug 2024)
         <ul>
-          <li>Developed AWS Lambda functions using NLP for 911 operator decision support.</li>
-          <li>Integrated multi-modal Naive Bayes classifier into PSAP APIs, enhancing translation and response efficiency.</li>
-          <li>Built Flask API to package chatbot session data for analysis by emergency systems.</li>
+          <li>Developed AWS Lambda NLP pipelines for 911 operator decision support.</li>
+          <li>Integrated multimodal Naive Bayes classifiers into PSAP APIs to enhance translation efficiency.</li>
+          <li>Built Flask APIs to package chatbot session data for emergency system analysis.</li>
         </ul>
       </li>
       <li><strong>Technical Sales Intern</strong>, Ingredion Inc (May 2023 – Aug 2023)
         <ul>
-          <li>Conducted Salesforce analysis identifying 38% additional sales opportunity.</li>
-          <li>Presented market findings to executives, influencing strategic decisions.</li>
+          <li>Conducted Salesforce analysis identifying a 38% increase in sales opportunities.</li>
+          <li>Presented strategic market insights to executive leadership.</li>
         </ul>
       </li>
       <li><strong>Graduate & Undergraduate TA</strong>, Carnegie Mellon University (Jan 2023 – Dec 2023)
         <ul>
-          <li>Supported courses: Mechanical Engineering Seminar, Mechanical Design Methods, Thermodynamics.</li>
-          <li>Managed grading and classroom sessions, promoting positive learning environment.</li>
+          <li>Supported courses in Mechanical Design, Thermodynamics, and Mechanical Seminars; managed grading and led discussion sections.</li>
         </ul>
       </li>
     </ul>
     <h3>Machine Learning Projects</h3>
     <ul>
-      <li><strong>Multi-Agent RL with LLMs for Safe Path Planning</strong>: Hierarchical RL in Isaac Gym with GPT-4 integrated for obstacle classification and dynamic penalties.</li>
-      <li><strong>Cloud-Based ML with FIFA Dataset</strong>: Deployed neural network on GCP; improved test accuracy from 80% to 95% through hyperparameter tuning using PyTorch and Spark.</li>
-      <li><strong>Autonomous Tesla Vehicle Control Simulation</strong>: Developed EKF-SLAM in Webots for localization in GPS-limited environments; achieved &lt;5m average trajectory deviation.</li>
+      <li><strong>Multi-Agent RL with LLMs for Safe Path Planning</strong>: Hierarchical RL in Isaac Gym with GPT-4 for obstacle classification and dynamic penalty modeling.</li>
+      <li><strong>Cloud-Based ML with FIFA Dataset</strong>: Deployed and tuned neural networks on GCP using PyTorch and Spark; boosted test accuracy from 80% to 95%.</li>
+      <li><strong>Autonomous Tesla Vehicle Control Simulation</strong>: Developed EKF-SLAM in Webots for reliable GPS-denied localization; maintained &lt;5m trajectory error.</li>
     </ul>
     <h3>Skills & Activities</h3>
     <ul>
@@ -92,50 +95,74 @@
   </section>
   <section id="project1" class="project">
     <h2>Project 1: Accent-Conditioned TTS</h2>
-    <p><strong>Introduction & Social Value:</strong> This project explores bilingual accent synthesis to improve inclusivity in voice interfaces.</p>
-    <div>
+    <p><strong>Introduction & Social Value:</strong> This project explores bilingual accent synthesis to improve inclusivity in voice interfaces, helping non-native speakers be better understood by technology.</p>
+    <figure>
       <img src="project1.png" alt="Accent-Conditioned TTS screenshot">
-    </div>
-    <h3>IMRD / IDEC Format</h3>
-    <p><strong>Methods:</strong> Implemented Grad-TTS diffusion model with LoRA finetuning.</p>
-    <p><strong>Results:</strong> Achieved 95% accent identification accuracy in user study.</p>
-    <p><strong>Discussion:</strong> Demonstrated feasibility of dynamic accent blending.</p>
+      <figcaption>System architecture illustrating accent embedding and diffusion process.</figcaption>
+    </figure>
+    <h3>IMRD Format</h3>
+    <p><strong>Methods:</strong> Extended Grad-TTS with Low-Rank Adaptation (LoRA) to finetune accent embeddings. Implemented control over accent distribution vectors, training on Common Voice using a pre-trained accent classifier.</p>
+    <p><strong>Results:</strong> Achieved 95% top-1 accent identification accuracy; MOS of 1.96 for blended accents.</p>
+    <p><strong>Discussion:</strong> Demonstrates potential for personalized, mixed-accent TTS. Future work will integrate real-time accent adaptation and broader accent sets.</p>
+    <p><strong>My Role & Skills:</strong> I implemented the LoRA modules in PyTorch, designed data pipelines in Python, and conducted user studies via Google Forms.</p>
   </section>
   <section id="project2" class="project">
     <h2>Project 2: DPOT Foundation Model Benchmarking</h2>
-    <p><strong>Introduction & Social Value:</strong> Benchmarked PDE foundation models for climate simulation acceleration.</p>
-    <img src="project2.png" alt="Benchmark chart">
-    <h3>IMRD / IDEC Format</h3>
-    <p><strong>Methods:</strong> Trained DPOT, Poseidon, Transolver on Darcy dataset.</p>
-    <p><strong>Results:</strong> DPOT reduced inference time by 40% with &lt;5% error.</p>
-    <p><strong>Discussion:</strong> Outperforms traditional solvers for real-time applications.</p>
+    <p><strong>Introduction & Social Value:</strong> Benchmarked three PDE foundation models to accelerate climate simulation workflows, reducing computational overhead for sustainability research.</p>
+    <figure>
+      <img src="project2.png" alt="Benchmark performance chart">
+      <figcaption>Inference time vs. relative error across DPOT, Poseidon, and Transolver on Darcy dataset.</figcaption>
+    </figure>
+    <h3>IMRD Format</h3>
+    <p><strong>Methods:</strong> Trained DPOT, Poseidon, and Transolver models on a 241×241 Darcy dataset using PyTorch; implemented training scripts and evaluation metrics.</p>
+    <p><strong>Results:</strong> DPOT achieved 40% faster inference with &lt;5% error; Poseidon showed best generalization on unseen geometries.</p>
+    <p><strong>Discussion:</strong> Highlights trade-offs between speed and accuracy. Future work includes LoRA finetuning for resource-constrained deployment.</p>
+    <p><strong>My Role & Skills:</strong> I wrote training and evaluation pipelines in Python, implemented LoRA finetuning, and visualized results with Matplotlib.</p>
   </section>
   <section id="project3" class="project">
-    <h2>Project 3: PPO-Based Humanoid Locomotion</h2>
-    <p><strong>Introduction & Social Value:</strong> Developed adaptive prosthetic control to enhance mobility.</p>
-    <img src="project3.png" alt="Humanoid locomotion simulation">
-    <h3>IMRD / IDEC Format</h3>
-    <p><strong>Methods:</strong> Applied PPO with imitation learning on MuJoCo environment.</p>
-    <p><strong>Results:</strong> Improved gait stability by 20% in simulation.</p>
-    <p><strong>Discussion:</strong> Path toward real-world prosthetic deployment.</p>
+    <h2>Project 3: Adaptive Prosthetic Control via Hybrid Learning</h2>
+    <p><strong>Introduction & Social Value:</strong> Lower extremity mobility challenges affect millions—150,000 transtibial amputations occur annually in the U.S. This work develops adaptive controllers for ankle prostheses to restore natural gait and improve users’ independence.</p>
+    <h3>IMRD Format</h3>
+    <p><strong>Methods:</strong> Designed a hybrid pipeline combining Variational Adversarial Imitation Learning (VAIL) and Proximal Policy Optimization (PPO) in the MuJoCo simulation. The VAIL agent bootstraps expert gait from demonstration data; the PPO-based MLP agent refines ankle control for environmental adaptation. Implemented in Python with Gym and Stable Baselines3.</p>
+    <figure>
+      <img src="project3_flowchart.png" alt="Two-agent learning pipeline flowchart">
+      <figcaption>Hybrid VAIL + PPO training pipeline for ankle prosthesis control.</figcaption>
+    </figure>
+    <p><strong>Results:</strong>
+      <ul>
+        <li>Achieved 43,088 avg. steps per rollout (MLP, 22 states) with MAE 10.17 Nm.</li>
+        <li>Hybrid approach outperformed pure IL (limited adaptation) and pure RL (unstable gait).</li>
+        <li>MLP-based controller matched transformer variants while using 80% fewer parameters.</li>
+      </ul>
+    </p>
+    <figure>
+      <img src="project3_kinematics.png" alt="Ankle joint kinematics comparison">
+      <figcaption>Expert vs. MLP controller ankle joint kinematics across gait cycles.</figcaption>
+    </figure>
+    <p><strong>Discussion:</strong> The hybrid pipeline effectively balances expert-like consistency with adaptive robustness. Reducing state inputs maintained performance, suggesting efficient feature selection. Next steps include testing with real hardware and integrating proprioceptive feedback.</p>
+    <p><strong>My Role & Skills:</strong> I architected the learning framework, implemented MuJoCo environments, and tuned PPO hyperparameters. Key skills: Python, Reinforcement Learning (PPO, VAIL), MuJoCo, deep learning, environment integration.</p>
   </section>
   <section id="project4" class="project">
     <h2>Project 4: Neural Tracking Frame Prediction</h2>
-    <p><strong>Introduction & Social Value:</strong> Predicts player movements to enhance sports analytics.</p>
-    <img src="project4.png" alt="Player tracking frame">
-    <h3>IMRD / IDEC Format</h3>
-    <p><strong>Methods:</strong> CNN-LSTM architecture trained on NFL tracking data.</p>
-    <p><strong>Results:</strong> Achieved 90% accuracy in frame prediction.</p>
-    <p><strong>Discussion:</strong> Assists coaches in strategy analysis.</p>
+    <p><strong>Introduction & Social Value:</strong> Predicting player movement enhances sports analytics and injury prevention. This project forecasts next-frame positions to assist coaches in tactical decision-making.</p>
+    <figure>
+      <img src="project4.png" alt="Player tracking frame prediction example">
+      <figcaption>Sample predicted vs. ground-truth player positions on field.</figcaption>
+    </figure>
+    <h3>IMRD Format</h3>
+    <p><strong>Methods:</strong> Developed a CNN-LSTM network in PyTorch to predict future frames from NFL tracking data. Implemented data normalization and sequence batching for temporal modeling.</p>
+    <p><strong>Results:</strong> Achieved 90% frame prediction accuracy; reduced average positional error by 25% compared to baseline.</p>
+    <p><strong>Discussion:</strong> Demonstrates effective temporal feature extraction for movement forecasting. Future work involves multi-agent interaction modeling and real-time deployment.</p>
+    <p><strong>My Role & Skills:</strong> I designed the neural architecture, implemented training pipelines, and performed hyperparameter tuning. Key skills: PyTorch, sequence modeling, data engineering.</p>
   </section>
   <section id="memo">
     <h2>Justification Memo</h2>
     <div class="memo">
       <h3>To: Liz Walker</h3>
-      <p>From: Shawn Krishnan<br>Date: May 2, 2025<br>Subject: Web Portfolio Justification</p>
-      <p>I am targeting AI research roles in the tech industry that prioritize machine learning and web development expertise. This portfolio emphasizes those skills through concise project descriptions and quantifiable achievements.</p>
-      <p>Each section was tailored to highlight my analytical abilities and technical proficiency, aligning with employer expectations. The resume section places key skills at the top for quick scanning. Project descriptions follow the IMRD format to clearly communicate objectives and outcomes.</p>
-      <p>Thank you for reviewing my portfolio. <a href="#top">View the full portfolio</a>.</p>
+      <p>From: Shawn Krishnan<br>Date: May 2, 2025<br>Subject: Web Portfolio Justification</p>
+      <p>I am targeting AI research roles that value machine learning, simulation, and full-stack engineering skills. This portfolio emphasizes my expertise through quantified results, clear IMRD project write-ups, and strategic placement of technical accomplishments.</p>
+      <p>The resume highlights core skills at the top, ensuring quick recognition. Project sections communicate social impact, objective, methods, and outcomes aligned with employer priorities. Images and concise language improve readability and engagement.</p>
+      <p>Thank you for reviewing my portfolio. <a href="#top">Return to top</a>.</p>
     </div>
   </section>
 </body>
