@@ -6,7 +6,7 @@ btn.addEventListener('click', () => {
   nav.classList.toggle('open');
 });
 
-/* Optional: close mobile menu on nav-link click */
+// Close mobile menu on link click
 document.querySelectorAll('nav a').forEach(link =>
   link.addEventListener('click', () => nav.classList.remove('open'))
 );
