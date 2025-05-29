@@ -32,15 +32,43 @@
   <section id="contact" class="card-section">
     <div class="container">
       <h2>Contact Me</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required/>
-        <input type="email" name="email" placeholder="Your Email" required/>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a></p>
-        <p>Phone: (917) 719-1646</p>
+      <p class="subtitle" style="color: var(--muted); margin-bottom: 1.5em; text-align: center;">
+        Have a question or want to collaborate? Let's chat!
+      </p>
+
+      <div
+        class="contact-grid"
+        style="display: flex; gap: 2em; flex-wrap: wrap; align-items: flex-start;"
+      >
+        <!-- Contact Form -->
+        <form
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+          class="contact-form"
+          style="flex: 1; min-width: 280px;"
+        >
+          <input type="text" name="name" placeholder="Your Name" required/>
+          <input type="email" name="email" placeholder="Your Email" required/>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <!-- Direct Contact Info -->
+        <div
+          class="contact-info"
+          style="flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 1em;"
+        >
+          <div>
+            <h3 style="margin-bottom: 0.3em; color: var(--accent);">📧 Email</h3>
+            <a href="mailto:shawnakk@andrew.cmu.edu" style="color: var(--text);">
+              shawnakk@andrew.cmu.edu
+            </a>
+          </div>
+          <div>
+            <h3 style="margin-bottom: 0.3em; color: var(--accent);">📞 Phone</h3>
+            <p style="margin: 0; color: var(--text);">(917) 719-1646</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
