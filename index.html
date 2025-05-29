@@ -1,155 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shawn Krishnan | Web Portfolio</title>
-  <style>
-    :root { --primary: #2c3e50; --secondary: #ecf0f1; --accent: #2980b9; }
-    body { margin:0; font-family: Arial, sans-serif; color: var(--primary); background: var(--secondary); }
-    header { background: var(--primary); color: white; padding: 1em 0; text-align: center; }
-    header p { margin: 0.3em 0; }
-    nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; margin:0; padding:0; }
-    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
-    section { max-width: 800px; margin: 2em auto; background: white; padding: 1.5em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    section h2 { border-bottom: 2px solid var(--accent); padding-bottom: 0.5em; margin-bottom: 1em; }
-    ul { padding-left: 1.2em; }
-    .project { margin-bottom: 2em; }
-    .project figure { margin: 1em 0; }
-    .project img { max-width: 100%; border-radius: 4px; }
-    .project figcaption { text-align: center; font-size: 0.9em; color: #555; margin-top: 0.5em; }
-    .memo { font-family: 'Courier New', monospace; background: #f7f7f7; padding: 1em; border-left: 4px solid var(--accent); }
-    .memo h3 { margin-top: 0; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shawn Krishnan | Home</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
 </head>
 <body>
-  <header id="top">
-    <h1>Shawn Krishnan</h1>
-    <p>shawnakk@andrew.cmu.edu | (917) 719-1646 | <a href="https://www.linkedin.com/in/shawnkrishnan/" style="color: var(--accent);" target="_blank">LinkedIn</a></p>
-    <p>Master of Science in Artificial Intelligence Engineering, Carnegie Mellon University</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#project1">Project 1</a></li>
-        <li><a href="#project2">Project 2</a></li>
-        <li><a href="#project3">Project 3</a></li>
-        <li><a href="#memo">Justification Memo</a></li>
-      </ul>
-    </nav>
+  <header>
+    <div class="container">
+      <h1 class="logo">Shawn Krishnan</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="menu-toggle">☰</button>
+      </nav>
+    </div>
   </header>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Driven professional with a solid analytical background in Machine Learning and Mechanical Engineering from Carnegie Mellon University. Skilled in problem-solving, effective communication, and strategic thinking. I am a engineer adept at breaking down complex problems, leading decisively, and delivering results.
 
-        Previously Systems Engineer at Comtech Telecommunications focused on Natural Language Processing for 911 emergency response augmentation.</p>
-  </section>
-  <section id="resume">
-    <h2>Resume</h2>
-    <p><a href="Shawn_Krishnan_CMU_ML_RESUME.pdf" target="_blank">Download Full Resume (PDF)</a></p>
-    <h3>Education</h3>
-    <ul>
-      <li>Master of Science in Artificial Intelligence Engineering, Carnegie Mellon University — GPA: 3.76/4.00 (May 2025)</li>
-      <li>Bachelor of Science in Mechanical Engineering, Carnegie Mellon University — GPA: 3.74/4.00 (Dec 2023)</li>
-    </ul>
-    <h3>Work Experience</h3>
-    <ul>
-      <li><strong>Mechanical AI Lab Research Assistant</strong>, Carnegie Mellon College of Engineering (Aug 2024 – Present)
-        <ul>
-          <li>Researched PDE optimization via deep learning and physics-informed neural networks for turbulent flow simulation.</li>
-        </ul>
-      </li>
-      <li><strong>AI/NLP Systems Engineering Intern</strong>, Comtech Telecommunications Inc (May 2024 – Aug 2024)
-        <ul>
-          <li>Developed AWS Lambda NLP pipelines for 911 operator decision support.</li>
-          <li>Integrated multimodal Naive Bayes classifiers into PSAP APIs to enhance translation efficiency.</li>
-          <li>Built Flask APIs to package chatbot session data for emergency system analysis.</li>
-        </ul>
-      </li>
-      <li><strong>Technical Sales Intern</strong>, Ingredion Inc (May 2023 – Aug 2023)
-        <ul>
-          <li>Conducted Salesforce analysis identifying a 38% increase in sales opportunities.</li>
-          <li>Presented strategic market insights to executive leadership.</li>
-        </ul>
-      </li>
-      <li><strong>Graduate & Undergraduate TA</strong>, Carnegie Mellon University (Jan 2023 – Dec 2023)
-        <ul>
-          <li>Supported courses in Mechanical Design, Thermodynamics, and Mechanical Seminars; managed grading and led discussion sections.</li>
-        </ul>
-      </li>
-    </ul>
-    <h3>Machine Learning Projects</h3>
-    <ul>
-      <li><strong>Multi-Agent RL with LLMs for Safe Path Planning</strong>: Hierarchical RL in Isaac Gym with GPT-4 for obstacle classification and dynamic penalty modeling.</li>
-      <li><strong>Cloud-Based ML with FIFA Dataset</strong>: Deployed and tuned neural networks on GCP using PyTorch and Spark; boosted test accuracy from 80% to 95%.</li>
-      <li><strong>Autonomous Tesla Vehicle Control Simulation</strong>: Developed EKF-SLAM in Webots for reliable GPS-denied localization; maintained &lt;5m trajectory error.</li>
-    </ul>
-    <h3>Skills & Activities</h3>
-    <ul>
-      <li><strong>Software/Tools:</strong> Python, PyTorch, TensorFlow, Spark, AWS, Docker, Kubernetes, MATLAB, SolidWorks</li>
-      <li><strong>Databases:</strong> SQL, NoSQL, Neo4j, MongoDB</li>
-      <li><strong>Activities:</strong> NCAA DIII Varsity Track & Field, 3× Dean’s List, University Honors</li>
-      <li><strong>Languages:</strong> English (Native), Tamil (Fluent)</li>
-    </ul>
-  </section>
-  <section id="project1" class="project">
-    <h2>Project 1: Accent-Conditioned TTS</h2>
-    <p><strong>Introduction & Social Value:</strong> This project explores bilingual accent synthesis to improve inclusivity in voice interfaces, helping non-native speakers be better understood by technology.</p>
-    <figure>
-      <img src="project1.png" alt="Accent-Conditioned TTS screenshot">
-      <figcaption>System architecture illustrating accent embedding and diffusion process.</figcaption>
-    </figure>
-    <h3>IMRD Format</h3>
-    <p><strong>Methods:</strong> Extended Grad-TTS with Low-Rank Adaptation (LoRA) to finetune accent embeddings. Implemented control over accent distribution vectors, training on Common Voice using a pre-trained accent classifier.</p>
-    <p><strong>Results:</strong> Achieved 95% top-1 accent identification accuracy; MOS of 1.96 for blended accents.</p>
-    <p><strong>Discussion:</strong> Demonstrates potential for personalized, mixed-accent TTS. Future work will integrate real-time accent adaptation and broader accent sets.</p>
-    <p><strong>My Role & Skills:</strong> I implemented the LoRA modules in PyTorch, designed data pipelines in Python, and conducted user studies via Google Forms.</p>
-  </section>
-  <section id="project2" class="project">
-    <h2>Project 2: DPOT Foundation Model Benchmarking</h2>
-    <p><strong>Introduction & Social Value:</strong> Benchmarked three PDE foundation models to accelerate climate simulation workflows, reducing computational overhead for sustainability research.</p>
-    <figure>
-      <img src="project2.png" alt="Benchmark performance chart">
-      <figcaption>Inference time vs. relative error across DPOT, Poseidon, and Transolver on Darcy dataset.</figcaption>
-    </figure>
-    <h3>IMRD Format</h3>
-    <p><strong>Methods:</strong> Trained DPOT, Poseidon, and Transolver models on a 241×241 Darcy dataset using PyTorch; implemented training scripts and evaluation metrics.</p>
-    <p><strong>Results:</strong> DPOT achieved 40% faster inference with &lt;5% error; Poseidon showed best generalization on unseen geometries.</p>
-    <p><strong>Discussion:</strong> Highlights trade-offs between speed and accuracy. Future work includes LoRA finetuning for resource-constrained deployment.</p>
-    <p><strong>My Role & Skills:</strong> I wrote training and evaluation pipelines in Python, implemented LoRA finetuning, and visualized results with Matplotlib.</p>
-  </section>
-  <section id="project3" class="project">
-    <h2>Project 3: Adaptive Prosthetic Control via Hybrid Learning</h2>
-    <p><strong>Introduction & Social Value:</strong> Lower extremity mobility challenges affect millions—150,000 transtibial amputations occur annually in the U.S. This work develops adaptive controllers for ankle prostheses to restore natural gait and improve users’ independence.</p>
-    <h3>IMRD Format</h3>
-    <p><strong>Methods:</strong> Designed a hybrid pipeline combining Variational Adversarial Imitation Learning (VAIL) and Proximal Policy Optimization (PPO) in the MuJoCo simulation. The VAIL agent bootstraps expert gait from demonstration data; the PPO-based MLP agent refines ankle control for environmental adaptation. Implemented in Python with Gym and Stable Baselines3.</p>
-    <figure>
-      <img src="project3_flowchart.png" alt="Two-agent learning pipeline flowchart">
-      <figcaption>Hybrid VAIL + PPO training pipeline for ankle prosthesis control.</figcaption>
-    </figure>
-    <p><strong>Results:</strong>
-      <ul>
-        <li>Achieved 43,088 avg. steps per rollout (MLP, 22 states) with MAE 10.17 Nm.</li>
-        <li>Hybrid approach outperformed pure IL (limited adaptation) and pure RL (unstable gait).</li>
-        <li>MLP-based controller matched transformer variants while using 80% fewer parameters.</li>
-      </ul>
-    </p>
-    <figure>
-      <img src="project3_kinematics.png" alt="Ankle joint kinematics comparison">
-      <figcaption>Expert vs. MLP controller ankle joint kinematics across gait cycles.</figcaption>
-    </figure>
-    <p><strong>Discussion:</strong> The hybrid pipeline effectively balances expert-like consistency with adaptive robustness. Reducing state inputs maintained performance, suggesting efficient feature selection. Next steps include testing with real hardware and integrating proprioceptive feedback.</p>
-    <p><strong>My Role & Skills:</strong> I architected the learning framework, implemented MuJoCo environments, and tuned PPO hyperparameters. Key skills: Python, Reinforcement Learning (PPO, VAIL), MuJoCo, deep learning, environment integration.</p>
-  </section>
-  <section id="memo">
-    <h2>Justification Memo</h2>
-    <div class="memo">
-      <h3>To: Liz Walker</h3>
-      <p>From: Shawn Krishnan<br>Date: May 2, 2025<br>Subject: Web Portfolio Justification</p>
-      <p>I am targeting AI research roles that value machine learning, simulation, and full-stack engineering skills. This portfolio emphasizes my expertise through quantified results, clear IMRD project write-ups, and strategic placement of technical accomplishments.</p>
-      <p>The resume highlights core skills at the top, ensuring quick recognition. Project sections communicate social impact, objective, methods, and outcomes aligned with employer priorities. Images and concise language improve readability and engagement.</p>
-      <p>Thank you for reviewing my portfolio. <a href="#top">Return to top</a>.</p>
+  <section class="hero">
+    <div class="container">
+      <img src="assets/images/profile.jpg" alt="Shawn Krishnan" class="hero-img"/>
+      <h2>Hello, I'm <span>Shawn Krishnan</span></h2>
+      <p>AI Engineer & PDE Researcher</p>
+      <a href="about.html" class="btn">Learn More</a>
     </div>
   </section>
+
+  <section class="projects-preview">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <a href="about.html#project1" class="card">
+          <img src="assets/images/project1.png" alt="Accent-TTS"/>
+          <h3>Accent-Conditioned TTS</h3>
+        </a>
+        <a href="about.html#project2" class="card">
+          <img src="assets/images/project2.png" alt="DPOT Benchmark"/>
+          <h3>DPOT Benchmarking</h3>
+        </a>
+        <a href="about.html#project3" class="card">
+          <img src="assets/images/project3_flowchart.png" alt="Prosthetic Control"/>
+          <h3>Prosthetic Control</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Shawn Krishnan — <a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a></p>
+      <div class="social">
+        <a href="https://linkedin.com/in/shawnkrishnan" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shawn Krishnan | About</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">Shawn Krishnan</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="menu-toggle">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about" class="card-section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Driven professional with a solid analytical background in Machine Learning and Mechanical Engineering from Carnegie Mellon University. Skilled in problem-solving, communication, and strategic thinking.
+      </p>
+      <p>
+        Former Systems Engineer at Comtech Telecommunications focused on NLP for 911 emergency response augmentation.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" class="card-section">
+    <div class="container">
+      <h2 id="project1">Project 1: Accent-Conditioned TTS</h2>
+      <p>This project uses LoRA to produce bilingual accent synthesis, improving inclusivity in voice UIs.</p>
+      <figure>
+        <img src="assets/images/project1.png" alt="Accent-Conditioned TTS architecture"/>
+        <figcaption>Accent embedding + diffusion pipeline</figcaption>
+      </figure>
+
+      <h2 id="project2">Project 2: DPOT Benchmarking</h2>
+      <p>Benchmarked PDE foundation models (DPOT, Poseidon, Transolver) on Darcy flows to accelerate climate simulations.</p>
+      <figure>
+        <img src="assets/images/project2.png" alt="DPOT benchmark chart"/>
+        <figcaption>Inference time vs error</figcaption>
+      </figure>
+
+      <h2 id="project3">Project 3: Prosthetic Control</h2>
+      <p>Hybrid VAIL + PPO pipeline in MuJoCo restores natural gait for ankle prostheses.</p>
+      <figure>
+        <img src="assets/images/project3_flowchart.png" alt="Prosthetic control pipeline"/>
+        <figcaption>Two-agent learning flowchart</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Shawn Krishnan</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
