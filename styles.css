@@ -1,12 +1,28 @@
-/* Import Inter (body) + DM Serif Display (headings) */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap');
+/*─────────────────────────────────────────────────────────────────
+  0. LOAD EYEGLASS NORMAL (no spaces in filename / root/fonts/)
+─────────────────────────────────────────────────────────────────*/
+@font-face {
+  font-family: 'Eyeglass Normal';
+  /* Points to the WOFF file in fonts/ */
+  src: url('fonts/eye-glass-2.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  1. IMPORT INTER (sans) + MERRIWEATHER (serif fallback)
+─────────────────────────────────────────────────────────────────*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;400;700&display=swap');
 
 :root {
-  --bg: #0e0e0e;
-  --card: #1e1e1e;
-  --text: #ecf0f1;
-  --muted: #999;
-  --accent: #FFD700;
+  --bg: #000000;                   /* Deep black for page background */
+  --overlay: rgba(0,0,0,0.7);       /* Dark overlay on hero image */
+  --card-bg: #121212;              /* Dark gray for future card sections */
+  --text-light: #F5F5F5;           /* Near-white main text */
+  --text-muted: #AAAAAA;           /* Muted gray subtext */
+  --accent: #DAA520;               /* Warm gold accent color */
+  --transition: 0.3s ease;         /* Standard transition timing */
 }
 
 * {
@@ -15,20 +31,157 @@
   padding: 0;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.7;
-  font-size: 1rem;
+html {
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'DM Serif Display', serif;
-  font-weight: 400;
-  line-height: 1.3;
+/*─────────────────────────────────────────────────────────────────
+  2. BODY BACKGROUND (pure black)
+─────────────────────────────────────────────────────────────────*/
+body {
+  background: var(--bg);
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  3. HEADER / NAVIGATION (sticky, transparent over hero)
+─────────────────────────────────────────────────────────────────*/
+header {
+  position: sticky;
+  top: 0;
+  background: transparent; /* Let the hero image show behind */
+  z-index: 1000;
+  padding: 1em 0;
+}
+
+/* Container now spans full width, centers contents, and pushes nav to right */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo on left, nav on right */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2em; /* Horizontal padding */
+}
+
+/* Logo uses Eyeglass Normal, flush left */
+.logo {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 2rem;
   color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;    /* Prevent “Shawn Krishnan” from breaking */
+  flex-shrink: 0;         /* Don’t shrink the logo */
+  margin-right: 2em;      /* Space between logo and nav */
+}
+
+/* Give <nav> the remainder of the space */
+nav {
+  flex: 1;
+}
+
+/* Lay out the links in a row, right-aligned */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  justify-content: flex-end; /* Push links to the right */
+  flex-wrap: nowrap;         /* Prevent wrapping */
+}
+
+/* Navigation links match the button’s styling */
+nav a {
+  font-family: 'Eyeglass Normal', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: normal;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;    /* Keep each label on one line */
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--accent);
+  color: #121212;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  4. HERO SECTION (fullscreen NYC image + overlay)
+─────────────────────────────────────────────────────────────────*/
+.hero {
+  height: 100vh;
+  background: url('images/new-york-cityscape-uhd-4k-wallpaper.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay);
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 1em;
+}
+
+/* Hero title uses Eyeglass Normal */
+.hero h1 {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5em;
+}
+
+.hero .btn {
+  font-family: 'Eyeglass Normal', serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75em 2em;
+  background: var(--accent);
+  color: #121212;
+  text-decoration: none;
+  font-weight: normal;
+  border-radius: 4px;
+  transition: background var(--transition);
+}
+
+.hero .btn:hover {
+  background: #c2942d; /* Slightly darker gold on hover */
+}
+
+/*─────────────────────────────────────────────────────────────────
+  5. SECTIONS BELOW HERO (increased vertical spacing)
+─────────────────────────────────────────────────────────────────*/
+.section {
+  background: var(--bg);
+  padding: 6em 0;   /* More spacing between sections */
 }
 
 .container {
@@ -37,305 +190,174 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto;
 }
 
-/* HEADER */
-header {
-  background: #121212;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5em 0;
-}
-.logo {
+/* Generic section heading style */
+.section h2 {
+  font-family: 'Merriweather', serif;
   font-size: 2rem;
+  margin-bottom: 1em;
   color: var(--accent);
-  text-decoration: none;
 }
 
-/* NAVIGATION */
-nav {
-  position: relative;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5em;
-}
-nav li {
-  margin: 0;
-}
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 400;
+/*─────────────────────────────────────────────────────────────────
+  6. ABOUT SECTION
+─────────────────────────────────────────────────────────────────*/
+#about p {
   font-size: 1rem;
-  transition: background 0.3s, color 0.3s;
-  padding: 0.3em 0.6em;
-  border-radius: 4px;
-}
-nav a.active,
-nav a:hover {
-  background: var(--accent);
-  color: #121212;
+  color: var(--text-light);
+  margin-bottom: 1.5em;  /* More space between paragraphs */
 }
 
-#menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  color: var(--text);
-  cursor: pointer;
+/*─────────────────────────────────────────────────────────────────
+  7. PROFESSIONAL WORK EXPERIENCE
+─────────────────────────────────────────────────────────────────*/
+#experience .job {
+  margin-bottom: 2.5em;  /* More vertical gap between job entries */
 }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 5em 0 3em;
-}
-.hero-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid var(--accent);
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-.hero h2 {
-  margin: 1em 0 0.3em;
-  font-size: 2.5rem;
-}
-.hero h2 span {
+#experience .job h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.25em;
   color: var(--accent);
 }
-.hero p {
-  font-size: 1.1rem;
-  color: var(--muted);
+
+#experience .job-dates {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
-.btn {
-  display: inline-block;
-  margin-top: 1.5em;
-  padding: 0.75em 1.5em;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
+
+#experience .job ul {
+  list-style: disc inside;
+  margin-top: 0.5em;
+}
+
+#experience .job ul li {
+  margin-bottom: 0.75em;
+  color: var(--text-light);
+}
+
+/*─────────────────────────────────────────────────────────────────
+  8. BLOG SECTION
+─────────────────────────────────────────────────────────────────*/
+.blog-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.blog-list li {
+  margin-bottom: 1em;  /* More space between blog items */
+}
+
+.blog-list li a {
   font-family: 'Inter', sans-serif;
-  background: var(--accent);
-  color: #121212;
-  transition: background 0.3s;
-}
-.btn:hover {
-  background: #e6c200;
+  font-size: 1rem;
+  color: var(--accent);
+  text-decoration: none;
 }
 
-/* CARD SECTION (About, Projects, Resume, Contact) */
-.card-section {
-  background: var(--card);
-  margin: 3em 0;
-  padding: 2.5em;
-  border-radius: 10px;
-}
-.card-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1em;
-}
-.card-section p {
-  font-size: 1.05rem;
-  margin-bottom: 1em;
+.blog-list li a:hover {
+  text-decoration: underline;
 }
 
-/* PROJECTS */
+.blog-list li span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-left: 0.5em;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  9. MACHINE LEARNING & ME PROJECTS
+     (reuse .project for both)
+─────────────────────────────────────────────────────────────────*/
 .project {
-  margin-bottom: 2.5em;
+  margin-bottom: 2.5em;  /* More vertical gap between projects */
 }
+
 .project h3 {
-  font-size: 1.5rem;
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
   margin-bottom: 0.5em;
-}
-.project p {
-  margin-bottom: 1em;
-}
-.project figure {
-  margin-top: 1em;
-}
-.project img {
-  width: 100%;
-  border-radius: 8px;
-}
-.project figcaption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: 0.5em;
-}
-
-/* PROJECTS GRID PREVIEW */
-.projects-preview .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2em;
-  margin-top: 2em;
-}
-.card {
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-}
-.card img {
-  width: 100%;
-  display: block;
-}
-.card h3 {
-  padding: 1em;
-  font-size: 1.2rem;
-}
-
-/* RESUME */
-.btn-outline {
-  display: inline-block;
-  margin-top: 1em;
-  padding: 0.75em 1.5em;
-  border: 2px solid var(--accent);
   color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
-  font-family: 'Inter', sans-serif;
-  transition: all 0.3s;
-}
-.btn-outline:hover {
-  background: var(--accent);
-  color: #121212;
-}
-ul {
-  padding-left: 1.2em;
-  margin-bottom: 1em;
-}
-.skills {
-  list-style: none;
-  margin-top: 0.5em;
-}
-.skills li {
-  margin-bottom: 0.5em;
 }
 
-/* CONTACT */
-.subtitle {
+.project p {
   font-size: 1rem;
-  color: var(--muted);
-  margin-bottom: 1.5em;
-  text-align: center;
+  color: var(--text-light);
 }
-.contact-grid {
-  display: flex;
-  gap: 2em;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-.contact-form {
-  flex: 1;
-  min-width: 280px;
-  display: grid;
-  gap: 1em;
-  margin-bottom: 2em;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.9em;
-  background: #2a2a2a;
-  border: none;
-  border-radius: 4px;
-  color: var(--text);
-  font-size: 1rem;
+
+/*─────────────────────────────────────────────────────────────────
+  10. LINKEDIN CONNECT BUTTON
+─────────────────────────────────────────────────────────────────*/
+#contact .btn-linkedin {
   font-family: 'Inter', sans-serif;
-}
-.contact-form textarea {
-  resize: vertical;
-}
-.contact-form button {
-  width: max-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1rem;
+  color: var(--text-light);
+  background: var(--accent);
   padding: 0.75em 1.5em;
-  border: none;
   border-radius: 4px;
-  background: var(--accent);
-  color: #121212;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  transition: background 0.3s;
-}
-.contact-form button:hover {
-  background: #e6c200;
-}
-.contact-info {
-  flex: 1;
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-.contact-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.3em;
-}
-.contact-info a,
-.contact-info p {
-  font-size: 1rem;
-  color: var(--text);
   text-decoration: none;
+  transition: background var(--transition);
 }
 
-/* FOOTER */
+#contact .btn-linkedin:hover {
+  background: #c2942d;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  11. FOOTER
+─────────────────────────────────────────────────────────────────*/
 footer {
-  background: #121212;
-  color: var(--muted);
+  background: var(--bg);
   text-align: center;
+  color: var(--text-muted);
   padding: 1.5em 0;
   font-size: 0.9rem;
 }
+
 footer a {
+  font-family: 'Inter', sans-serif;
   color: var(--accent);
   text-decoration: none;
 }
+
 footer a:hover {
   text-decoration: underline;
 }
 
-/* RESPONSIVE NAV & CONTAINERS */
-@media (max-width: 600px) {
-  .container {
-    padding-left: 1em;
-    padding-right: 1em;
+/*─────────────────────────────────────────────────────────────────
+  12. RESPONSIVE ADJUSTMENTS
+─────────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1em;
+  }
+
+  #experience .job,
+  .project {
+    margin-bottom: 1.5em;
   }
 }
 
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block;
-  }
-  nav ul {
-    display: none;
+@media (max-width: 480px) {
+  header .container {
     flex-direction: column;
     gap: 1em;
-    margin-top: 1em;
   }
-  nav ul.open {
-    display: flex;
+
+  nav ul {
+    /* Allow wrapping on very small screens */
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  nav li {
-    margin: 0;
+
+  .hero h1 {
+    font-size: 3rem;
   }
-  nav a {
-    display: block;
-    padding: 0.6em 1em;
+
+  .hero p {
+    font-size: 1.1rem;
   }
 }

@@ -5,173 +5,192 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shawn Krishnan | Portfolio</title>
 
-  <!-- Professional Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Main stylesheet -->
+  <!-- MAIN STYLESHEET -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
-  <!-- Header / Navigation -->
+<body>
+  <!-- ========================================
+       HEADER / NAVIGATION (sticky)
+       ======================================== -->
   <header>
     <div class="container">
-      <h1 class="logo">Shawn Krishnan</h1>
+      <!-- Logo / Name -->
+      <a href="#about" class="logo">Shawn Krishnan</a>
+
+      <!-- Navigation Links -->
       <nav>
-        <button id="menu-toggle">☰</button>
         <ul>
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#experience">Work Experience</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#ml-projects">ML Projects</a></li>
+          <li><a href="#me-projects">ME Projects</a></li>
+          <li><a href="#contact">LinkedIn</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Home / Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <img src="assets/images/profile.jpg" alt="Shawn Krishnan" class="hero-img"/>
-      <h2>Hello, I'm <span>Shawn Krishnan</span></h2>
-      <p>AI Engineer & PDE Researcher</p>
-      <a href="#about" class="btn">Learn More</a>
+  <!-- ========================================
+       HERO SECTION
+       (Full‐screen New York background)
+       ======================================== -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Shawn Krishnan</h1>
+      <p>Currently: Founder @SlideVox Formerly: SWE @ Comtech Telecommunications</p>
+      <a href="#about" class="btn">Explore My Work</a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="card-section">
+  <!-- ========================================
+       ABOUT SECTION
+       ======================================== -->
+  <section id="about" class="section">
     <div class="container">
       <h2>About Me</h2>
       <p>
-        I’m a Carnegie Mellon–trained AI engineer and mechanical designer with a passion for turning complex problems into real-world solutions. My background in both machine learning and physical systems gives me a unique edge in building intelligent, grounded technologies.
+        [Insert concise bio here: who you are, what you do, and your passions.]
       </p>
       <p>
-        Most recently, I worked at Comtech Telecommunications, where I built NLP systems for emergency response. I've developed neural models for PDE optimization and am currently researching how to accelerate physics simulations using foundation models.
+        [Add a second paragraph with a bit more background—education, interests, etc.]
       </p>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="card-section">
+  <!-- ========================================
+       PROFESSIONAL WORK EXPERIENCE
+       ======================================== -->
+  <section id="experience" class="section">
     <div class="container">
-      <h2>Featured Projects</h2>
+      <h2>Professional Work Experience</h2>
 
-      <article class="project">
-        <h3 id="project1">1. Accent-Conditioned TTS</h3>
-        <p>
-          This project uses LoRA to generate bilingual accent synthesis, improving inclusivity in voice UIs by helping non-native speakers be better understood.
-        </p>
-        <figure>
-          <img src="assets/images/project1.png" alt="Accent-Conditioned TTS architecture"/>
-          <figcaption>Accent embedding + diffusion pipeline</figcaption>
-        </figure>
-      </article>
-
-      <article class="project">
-        <h3 id="project2">2. DPOT Benchmarking</h3>
-        <p>
-          Benchmarked three PDE foundation models (DPOT, Poseidon, Transolver) on the Darcy dataset to evaluate speed and generalization for climate simulation workflows.
-        </p>
-        <figure>
-          <img src="assets/images/project2.png" alt="DPOT benchmark chart"/>
-          <figcaption>Inference time vs relative error</figcaption>
-        </figure>
-      </article>
-
-      <article class="project">
-        <h3 id="project3">3. Adaptive Prosthetic Control</h3>
-        <p>
-          Developed a hybrid VAIL + PPO controller in MuJoCo to restore natural gait for transtibial prosthesis users using imitation + reinforcement learning.
-        </p>
-        <figure>
-          <img src="assets/images/project3_flowchart.png" alt="Prosthetic control pipeline"/>
-          <figcaption>Two-agent learning flowchart for adaptive ankle control</figcaption>
-        </figure>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Resume Section -->
-  <section id="resume" class="card-section">
-    <div class="container">
-      <h2>Resume</h2>
-      <a class="btn-outline" href="assets/files/Shawn_Krishnan_CMU_ML_RESUME.pdf" target="_blank">Download PDF</a>
-
-      <h3>Education</h3>
-      <ul>
-        <li>MS in AI Engineering, Carnegie Mellon University — GPA 3.76/4.00 (May 2025)</li>
-        <li>BS in Mechanical Engineering, Carnegie Mellon University — GPA 3.74/4.00 (Dec 2023)</li>
-      </ul>
-
-      <h3>Experience</h3>
-      <ul>
-        <li><strong>Mechanical AI Lab RA</strong>, CMU (Aug 2024 – Present)
-          <ul><li>PDE optimization via physics-informed nets for turbulent flows.</li></ul>
-        </li>
-        <li><strong>NLP Systems Intern</strong>, Comtech (May 2024 – Aug 2024)
-          <ul>
-            <li>AWS Lambda NLP pipelines for 911 support</li>
-            <li>Naive Bayes classifiers in PSAP APIs</li>
-          </ul>
-        </li>
-        <li><strong>Sales Intern</strong>, Ingredion (May 2023 – Aug 2023)
-          <ul><li>38% sales boost via Salesforce analytics</li></ul>
-        </li>
-      </ul>
-
-      <h3>Skills</h3>
-      <ul class="skills">
-        <li>Python · PyTorch · TensorFlow · Spark · AWS · Docker</li>
-        <li>SQL · NoSQL · MongoDB · Neo4j</li>
-        <li>MATLAB · SolidWorks</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="card-section">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p class="subtitle">Have a question or want to collaborate? Let's chat!</p>
-
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required/>
-          <input type="email" name="email" placeholder="Your Email" required/>
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-
-        <!-- Direct Contact Info -->
-        <div class="contact-info">
-          <div>
-            <h3>📧 Email</h3>
-            <a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a>
-          </div>
-          <div>
-            <h3>📞 Phone</h3>
-            <p>(917) 719-1646</p>
-          </div>
-        </div>
+      <!-- Job 1 -->
+      <div class="job">
+        <h3>Systems Engineer, Comtech Telecommunications</h3>
+        <span class="job-dates">May 2024 – Aug 2024</span>
+        <ul>
+          <li>Developed AWS Lambda NLP pipelines for 911 operator decision support.</li>
+          <li>Integrated multimodal Naive Bayes classifiers into PSAP APIs.</li>
+          <li>Built Flask APIs to package chatbot session data for emergency system analysis.</li>
+        </ul>
       </div>
+
+      <!-- Job 2 -->
+      <div class="job">
+        <h3>Mechanical AI Lab Research Assistant, CMU</h3>
+        <span class="job-dates">Aug 2024 – Present</span>
+        <ul>
+          <li>Researching PDE optimization via physics-informed neural networks for turbulent flow simulation.</li>
+        </ul>
+      </div>
+
+      <!-- Add additional positions similarly -->
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
+  <!-- ========================================
+       BLOG SECTION
+       ======================================== -->
+  <section id="blog" class="section">
     <div class="container">
-      <p>© 2025 Shawn Krishnan</p>
+      <h2>Blog</h2>
+      <ul class="blog-list">
+        <li>
+          <a href="https://example.com/post1" target="_blank">
+            Understanding Physics‐Informed Neural Networks
+          </a>
+          <span>— Mar 2025</span>
+        </li>
+        <li>
+          <a href="https://example.com/post2" target="_blank">
+            PyTorch vs TensorFlow: My Experience
+          </a>
+          <span>— Feb 2025</span>
+        </li>
+        <!-- Add more posts here -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================
+       MACHINE LEARNING PROJECTS
+       ======================================== -->
+  <section id="ml-projects" class="section">
+    <div class="container">
+      <h2>Machine Learning Projects</h2>
+
+      <!-- Project 1 -->
+      <div class="project">
+        <h3>Accent‐Conditioned TTS</h3>
+        <p>
+          Extended Grad‐TTS with LoRA to synthesize bilingual accents. Achieved 95% accent identification accuracy.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <h3>DPOT Foundation Model Benchmarking</h3>
+        <p>
+          Benchmarked DPOT, Poseidon, and Transolver on Darcy flows—DPOT was 40% faster with &lt; 5% error.
+        </p>
+      </div>
+
+      <!-- Add more ML projects similarly -->
+    </div>
+  </section>
+
+  <!-- ========================================
+       MECHANICAL ENGINEERING PROJECTS
+       ======================================== -->
+  <section id="me-projects" class="section">
+    <div class="container">
+      <h2>Mechanical Engineering Projects</h2>
+
+      <!-- Project 1 -->
+      <div class="project">
+        <h3>Autonomous Tesla Vehicle Control Simulation</h3>
+        <p>
+          Developed EKF‐SLAM in Webots for GPS‐denied localization—maintained &lt; 5 m trajectory error.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <h3>Adaptive Prosthetic Control via Hybrid Learning</h3>
+        <p>
+          Designed a hybrid VAIL + PPO controller in MuJoCo for ankle prosthesis—achieved stable natural gait.
+        </p>
+      </div>
+
+      <!-- Add more ME projects here -->
+    </div>
+  </section>
+
+  <!-- ========================================
+       LINKEDIN CONNECT BUTTON
+       ======================================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Connect on LinkedIn</h2>
+      <a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank" class="btn-linkedin">
+        Connect with me on LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer>
+    <div class="container center">
+      <p>&copy; 2025 Shawn Krishnan</p>
+      <p>
+        <a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a>
+      </p>
     </div>
   </footer>
-
-  <!-- Main script (mobile nav toggle) -->
-  <script src="main.js"></script>
 </body>
 </html>
