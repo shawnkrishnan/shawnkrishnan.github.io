@@ -57,7 +57,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1500px;
+  max-width: clamp(300px, 95vw, 2000px);
   margin: 0 auto;
   padding: 2rem 0rem;
 }
@@ -66,7 +66,8 @@ header .container {
   justify-content: space-between;
   align-items: left;
   width: 100%;
-  max-width: 1500px;
+  max-width: clamp(300px, 95vw, 2000px);
+
   margin: 0 ;
   padding: 0;
   text-align: left;         /* force left align inside */
@@ -80,7 +81,7 @@ header.scrolled {
 /* LOGO */
 .logo {
   font-family: 'Eyeglass Normal', serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--accent);
   text-decoration: none;
   white-space: nowrap;
@@ -273,46 +274,54 @@ nav#header-nav a.active {
 }
 
 .section h2 {
-  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
+  font-family: 'Eyeglass Normal', serif;
   font-size: 2rem;
   color: var(--accent);
   margin-bottom: 1em;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+
 #about p,
 .project p,
 .blog-list li span,
 footer a {
-  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
+  font-family: 'Merriweaterh', serif;
 }
 
 .project h3,
 #experience .job h3 {
-  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
+  font-family: 'Merriweaterh', serif;
   color: var(--accent);
   margin-bottom: 0.5em;
 }
 
 #experience .job ul {
   list-style: disc inside;
+  font-family: 'Merriweaterh', serif;
   margin-top: 0.5em;
 }
 
 .blog-list {
   list-style: none;
+  font-family: 'Merriweaterh', serif;
   padding: 0;
 }
 
 .blog-list li {
   margin-bottom: 1em;
+  font-family: 'Merriweaterh', serif;
 }
 
 .blog-list li a {
   color: var(--accent);
+  font-family: 'Merriweaterh', serif;
   text-decoration: none;
 }
 
 .blog-list li a:hover {
+  font-family: 'Merriweaterh', serif;
   text-decoration: underline;
 }
 
@@ -344,18 +353,35 @@ footer {
   12. RESPONSIVE + HAMBURGER DROPDOWN
 ─────────────────────────────────────────────────────────────────*/
 @media screen and (max-width: 768px) {
+  header {
+    padding: 1rem;  /* uniform padding on all sides */
+  }
+
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: none;  /* critical — do not limit width on mobile */
+  }
+
   #menu {
     display: block;
   }
+
   nav#header-nav {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
     background: var(--bg);
-    height: 100vh;
-    width: 7rem;
-    flex-direction: column;   /* mobile: vertical */
+    height: auto;
+    width: 100%;  /* full width for mobile dropdown */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
   }
 
   nav#header-nav.show {
@@ -363,9 +389,21 @@ footer {
   }
 
   nav#header-nav ul {
-    flex-direction: column;   /* mobile: vertical */
-    row-gap: 5rem;
-    margin-top: 3rem;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin: 0;
     padding: 0;
+    width: 100%;
+  }
+
+  nav#header-nav li {
+    width: 100%;
+    text-align: left;
+  }
+
+  nav#header-nav a {
+    display: block;
+    width: 100%;
+    padding: 0.5em 1rem;
   }
 }
