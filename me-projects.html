@@ -5,6 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Engineering Projects | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Quick accordion styling */
+    .accordion-title {
+      cursor: pointer;
+      padding: 1rem;
+      font-family: 'Eyeglass Normal', serif;
+      font-size: 1.2rem;
+      background: var(--card-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      margin-bottom: 0.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-title:hover {
+      background: #333;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      background: var(--bg);
+      color: var(--text-light);
+      font-family: 'Merriweather', serif;
+      border: 1px solid var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    /* Section headings */
+    .project-category {
+      margin-top: 3rem;
+    }
+
+    .project-category h3 {
+      font-family: 'Eyeglass Normal', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,14 +74,38 @@
     <div class="container">
       <h2>Mechanical Engineering Projects</h2>
 
-      <div class="project">
-        <h3>Autonomous Tesla Vehicle Control Simulation</h3>
-        <p>Developed EKF‐SLAM in Webots for GPS‐denied localization—maintained &lt; 5 m trajectory error.</p>
+      <!-- Graduate Projects -->
+      <div class="project-category">
+        <h3>Graduate Projects</h3>
+
+        <div class="accordion-title">Project Title 1</div>
+        <div class="accordion-content">Description for Project 1.</div>
+
+        <div class="accordion-title">Project Title 2</div>
+        <div class="accordion-content">Description for Project 2.</div>
+
+        <div class="accordion-title">Project Title 3</div>
+        <div class="accordion-content">Description for Project 3.</div>
+
+        <div class="accordion-title">Project Title 4</div>
+        <div class="accordion-content">Description for Project 4.</div>
+
+        <div class="accordion-title">Project Title 5</div>
+        <div class="accordion-content">Description for Project 5.</div>
       </div>
 
-      <div class="project">
-        <h3>Adaptive Prosthetic Control via Hybrid Learning</h3>
-        <p>Designed a hybrid VAIL + PPO controller in MuJoCo for ankle prosthesis—achieved stable natural gait.</p>
+      <!-- Undergraduate Projects -->
+      <div class="project-category">
+        <h3>Undergraduate Projects</h3>
+
+        <div class="accordion-title">Project Title 6</div>
+        <div class="accordion-content">Description for Project 6.</div>
+
+        <div class="accordion-title">Project Title 7</div>
+        <div class="accordion-content">Description for Project 7.</div>
+
+        <div class="accordion-title">Project Title 8</div>
+        <div class="accordion-content">Description for Project 8.</div>
       </div>
     </div>
   </section>
@@ -47,5 +115,15 @@
       <p>&copy; 2025 Shawn Krishnan</p>
     </div>
   </footer>
+
+  <script>
+    // Simple accordion logic
+    document.querySelectorAll('.accordion-title').forEach(title => {
+      title.addEventListener('click', () => {
+        const content = title.nextElementSibling;
+        content.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>

@@ -51,26 +51,24 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: transparent;
+  background: #000000;
   transition: background var(--transition);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;   /* center the .container inside header */
   align-items: center;
-  width: 100%;
-  max-width: clamp(300px, 95vw, 2000px);
-  margin: 0 auto;
+  width: 100%;               /* full width — no max-width here! */
   padding: 2rem 0rem;
 }
+
 header .container {
   display: flex;
   justify-content: space-between;
-  align-items: left;
+  align-items: center;        /* correct — 'left' is not a valid value here */
   width: 100%;
-  max-width: clamp(300px, 95vw, 2000px);
-
-  margin: 0 ;
+  max-width: clamp(300px, 95vw, 2000px); /* limit width of content */
   padding: 0;
-  text-align: left;         /* force left align inside */
+  margin: 0 auto;
+  text-align: left;
 }
 /* WHEN SCROLLED */
 header.scrolled {
@@ -262,17 +260,23 @@ nav#header-nav a.active {
 /*─────────────────────────────────────────────────────────────────
   5–11. OTHER SECTIONS & FOOTER
 ─────────────────────────────────────────────────────────────────*/
+/*─────────────────────────────────────────────────────────────────
+  SECTION BASE STYLE
+─────────────────────────────────────────────────────────────────*/
 .section {
   background: var(--bg);
   padding: 6em 0;
 }
 
-.container { /* for content sections */
+.container {
   width: 90%;
-  max-width: 1000px;
+  max-width: clamp(300px, 85vw, 1200px);
   margin: 0 auto;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  SECTION HEADINGS
+─────────────────────────────────────────────────────────────────*/
 .section h2 {
   font-family: 'Eyeglass Normal', serif;
   font-size: 2rem;
@@ -280,51 +284,100 @@ nav#header-nav a.active {
   margin-bottom: 1em;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  IMPORT SERIF FONT FOR BODY TEXT
+─────────────────────────────────────────────────────────────────*/
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 
-
+/*─────────────────────────────────────────────────────────────────
+  UNIVERSAL SECTION BODY TEXT
+─────────────────────────────────────────────────────────────────*/
+.section p,
 #about p,
 .project p,
 .blog-list li span,
 footer a {
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  color: var(--text-light);
 }
 
+/*─────────────────────────────────────────────────────────────────
+  PROJECT AND EXPERIENCE HEADINGS
+─────────────────────────────────────────────────────────────────*/
 .project h3,
 #experience .job h3 {
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
   color: var(--accent);
   margin-bottom: 0.5em;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  EXPERIENCE LISTS
+─────────────────────────────────────────────────────────────────*/
 #experience .job ul {
   list-style: disc inside;
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
   margin-top: 0.5em;
 }
 
+#experience .job li {
+  font-family: 'Merriweather', serif;
+  margin-bottom: 1em;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  BLOG LIST
+─────────────────────────────────────────────────────────────────*/
 .blog-list {
   list-style: none;
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
   padding: 0;
 }
 
 .blog-list li {
   margin-bottom: 1em;
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
 }
 
 .blog-list li a {
   color: var(--accent);
-  font-family: 'Merriweaterh', serif;
+  font-family: 'Merriweather', serif;
   text-decoration: none;
 }
 
 .blog-list li a:hover {
-  font-family: 'Merriweaterh', serif;
   text-decoration: underline;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  PUBLICATIONS LIST
+─────────────────────────────────────────────────────────────────*/
+#publications ul {
+  list-style: disc inside;
+  font-family: 'Merriweather', serif;
+  margin-top: 0.5em;
+}
+
+#publications li {
+  font-family: 'Merriweather', serif;
+  margin-bottom: 1em;
+}
+
+#publications li a {
+  color: var(--accent);
+  font-family: 'Merriweather', serif;
+  text-decoration: none;
+}
+
+#publications li a:hover {
+  text-decoration: underline;
+}
+
+/*─────────────────────────────────────────────────────────────────
+  LINKEDIN BUTTON
+─────────────────────────────────────────────────────────────────*/
 #contact .btn-linkedin {
   display: inline-flex;
   align-items: center;
@@ -341,13 +394,18 @@ footer a {
   background: #c2942d;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  FOOTER
+─────────────────────────────────────────────────────────────────*/
 footer {
   background: var(--bg);
   color: var(--text-muted);
   text-align: center;
   padding: 1.5em 0;
   font-size: 0.9rem;
+  font-family: 'Merriweather', serif;
 }
+
 
 /*─────────────────────────────────────────────────────────────────
   12. RESPONSIVE + HAMBURGER DROPDOWN
