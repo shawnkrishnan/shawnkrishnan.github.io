@@ -3,7 +3,6 @@
 ─────────────────────────────────────────────────────────────────*/
 @font-face {
   font-family: 'Eyeglass Normal';
-  /* Points to the WOFF file in fonts/ */
   src: url('fonts/eye-glass-2.woff') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -11,18 +10,16 @@
 }
 
 /*─────────────────────────────────────────────────────────────────
-  1. IMPORT INTER (sans) + MERRIWEATHER (serif fallback)
+  1. ROOT VARIABLES
 ─────────────────────────────────────────────────────────────────*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;400;700&display=swap');
-
 :root {
-  --bg: #000000;                   /* Deep black for page background */
-  --overlay: rgba(0,0,0,0.7);       /* Dark overlay on hero image */
-  --card-bg: #121212;              /* Dark gray for future card sections */
-  --text-light: #F5F5F5;           /* Near-white main text */
-  --text-muted: #AAAAAA;           /* Muted gray subtext */
-  --accent: #DAA520;               /* Warm gold accent color */
-  --transition: 0.3s ease;         /* Standard transition timing */
+  --bg: #000000;
+  --overlay: rgba(0,0,0,0.7);
+  --card-bg: #121212;
+  --text-light: #F5F5F5;
+  --text-muted: #AAAAAA;
+  --accent: #DAA520;
+  --transition: 0.3s ease;
 }
 
 * {
@@ -36,85 +33,176 @@ html {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  2. BODY BACKGROUND (pure black)
+  2. BODY
 ─────────────────────────────────────────────────────────────────*/
 body {
   background: var(--bg);
   color: var(--text-light);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 /*─────────────────────────────────────────────────────────────────
-  3. HEADER / NAVIGATION (sticky, transparent over hero)
+  3. HEADER / NAVIGATION
 ─────────────────────────────────────────────────────────────────*/
+/* HEADER */
 header {
   position: sticky;
   top: 0;
-  background: transparent; /* Let the hero image show behind */
   z-index: 1000;
-  padding: 1em 0;
+  background: transparent;
+  transition: background var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem 0rem;
 }
-
-/* Container now spans full width, centers contents, and pushes nav to right */
 header .container {
   display: flex;
-  align-items: center;
-  justify-content: space-between; /* Logo on left, nav on right */
+  justify-content: space-between;
+  align-items: left;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2em; /* Horizontal padding */
+  max-width: 1500px;
+  margin: 0 ;
+  padding: 0;
+  text-align: left;         /* force left align inside */
+}
+/* WHEN SCROLLED */
+header.scrolled {
+  background: var(#000000);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Logo uses Eyeglass Normal, flush left */
+/* LOGO */
 .logo {
   font-family: 'Eyeglass Normal', serif;
-  font-size: 2rem;
+  font-size: 3rem;
   color: var(--accent);
   text-decoration: none;
-  white-space: nowrap;    /* Prevent “Shawn Krishnan” from breaking */
-  flex-shrink: 0;         /* Don’t shrink the logo */
-  margin-right: 2em;      /* Space between logo and nav */
-}
-
-/* Give <nav> the remainder of the space */
-nav {
-  flex: 1;
-}
-
-/* Lay out the links in a row, right-aligned */
-nav ul {
-  list-style: none;
+  white-space: nowrap;
   display: flex;
-  gap: 2em;
-  justify-content: flex-end; /* Push links to the right */
-  flex-wrap: nowrap;         /* Prevent wrapping */
+  align-items: left;
+  justify-content: flex-start;
+  margin: 0;                /* no auto centering */
+  padding: 0; 
+  padding-right: 4rem;              /* no padding */
 }
 
-/* Navigation links match the button’s styling */
-nav a {
+/* NAV aligned right */
+nav#header-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav#header-nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;         /* this prevents wrapping */
+  white-space: nowrap;   /* horizontal! */
+  gap: 2em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#header-nav li {
+  margin: 0;
+}
+
+nav#header-nav a {
   font-family: 'Eyeglass Normal', serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-light);
   text-decoration: none;
-  font-weight: normal;
   padding: 0.3em 0.6em;
   border-radius: 4px;
   transition: background var(--transition), color var(--transition);
-  white-space: nowrap;    /* Keep each label on one line */
 }
 
-nav a:hover,
-nav a.active {
+nav#header-nav a:hover,
+nav#header-nav a.active {
   background: var(--accent);
   color: #121212;
 }
 
+/* HAMBURGER BUTTON (hidden on desktop) */
+#menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+#menu.is-active {
+  transform: rotate(90deg);
+}
+
+/* RESPONSIVE — MOBILE ONLY */
+@media screen and (max-width: 768px) {
+  /* show hamburger */
+  #menu {
+    display: block;
+  }
+
+  /* hide nav by default */
+  nav#header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg);
+    height: 100vh;
+    width: 7rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  /* show nav when toggled */
+  nav#header-nav.show {
+    display: flex;
+  }
+
+  nav#header-nav ul {
+    flex-direction: column;
+    row-gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav#header-nav li {
+    margin: 0;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+
+
+/* HAMBURGER BUTTON */
+#menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+#menu.is-active {
+  transform: rotate(90deg);
+}
+
 /*─────────────────────────────────────────────────────────────────
-  4. HERO SECTION (fullscreen NYC image + overlay)
+  4. HERO SECTION
 ─────────────────────────────────────────────────────────────────*/
 .hero {
   height: 100vh;
@@ -128,102 +216,81 @@ nav a.active {
 
 .hero .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: var(--overlay);
 }
 
 .hero .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
   padding: 1em;
 }
 
-/* Hero title uses Eyeglass Normal */
-.hero h1 {
+.hero h1, .hero p, .hero .btn {
   font-family: 'Eyeglass Normal', serif;
+}
+
+.hero h1 {
   font-size: 5rem;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-light);
   margin-bottom: 0.5em;
 }
 
 .hero p {
-  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   color: var(--text-muted);
   margin-bottom: 1.5em;
 }
 
 .hero .btn {
-  font-family: 'Eyeglass Normal', serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.75em 2em;
   background: var(--accent);
   color: #121212;
   text-decoration: none;
-  font-weight: normal;
   border-radius: 4px;
   transition: background var(--transition);
 }
 
 .hero .btn:hover {
-  background: #c2942d; /* Slightly darker gold on hover */
+  background: #c2942d;
 }
 
 /*─────────────────────────────────────────────────────────────────
-  5. SECTIONS BELOW HERO (increased vertical spacing)
+  5–11. OTHER SECTIONS & FOOTER
 ─────────────────────────────────────────────────────────────────*/
 .section {
   background: var(--bg);
-  padding: 6em 0;   /* More spacing between sections */
+  padding: 6em 0;
 }
 
-.container {
+.container { /* for content sections */
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Generic section heading style */
 .section h2 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
   font-size: 2rem;
+  color: var(--accent);
   margin-bottom: 1em;
-  color: var(--accent);
 }
 
-/*─────────────────────────────────────────────────────────────────
-  6. ABOUT SECTION
-─────────────────────────────────────────────────────────────────*/
-#about p {
-  font-size: 1rem;
-  color: var(--text-light);
-  margin-bottom: 1.5em;  /* More space between paragraphs */
+#about p,
+.project p,
+.blog-list li span,
+footer a {
+  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
 }
 
-/*─────────────────────────────────────────────────────────────────
-  7. PROFESSIONAL WORK EXPERIENCE
-─────────────────────────────────────────────────────────────────*/
-#experience .job {
-  margin-bottom: 2.5em;  /* More vertical gap between job entries */
-}
-
+.project h3,
 #experience .job h3 {
-  font-family: 'Merriweather', serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.25em;
+  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
   color: var(--accent);
-}
-
-#experience .job-dates {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  margin-bottom: 0.5em;
 }
 
 #experience .job ul {
@@ -231,26 +298,16 @@ nav a.active {
   margin-top: 0.5em;
 }
 
-#experience .job ul li {
-  margin-bottom: 0.75em;
-  color: var(--text-light);
-}
-
-/*─────────────────────────────────────────────────────────────────
-  8. BLOG SECTION
-─────────────────────────────────────────────────────────────────*/
 .blog-list {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
 }
 
 .blog-list li {
-  margin-bottom: 1em;  /* More space between blog items */
+  margin-bottom: 1em;
 }
 
 .blog-list li a {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
   color: var(--accent);
   text-decoration: none;
 }
@@ -259,43 +316,12 @@ nav a.active {
   text-decoration: underline;
 }
 
-.blog-list li span {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-left: 0.5em;
-}
-
-/*─────────────────────────────────────────────────────────────────
-  9. MACHINE LEARNING & ME PROJECTS
-     (reuse .project for both)
-─────────────────────────────────────────────────────────────────*/
-.project {
-  margin-bottom: 2.5em;  /* More vertical gap between projects */
-}
-
-.project h3 {
-  font-family: 'Merriweather', serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.5em;
-  color: var(--accent);
-}
-
-.project p {
-  font-size: 1rem;
-  color: var(--text-light);
-}
-
-/*─────────────────────────────────────────────────────────────────
-  10. LINKEDIN CONNECT BUTTON
-─────────────────────────────────────────────────────────────────*/
 #contact .btn-linkedin {
-  font-family: 'Inter', sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  font-size: 1rem;
-  color: var(--text-light);
   background: var(--accent);
+  color: var(--text-light);
   padding: 0.75em 1.5em;
   border-radius: 4px;
   text-decoration: none;
@@ -306,58 +332,40 @@ nav a.active {
   background: #c2942d;
 }
 
-/*─────────────────────────────────────────────────────────────────
-  11. FOOTER
-─────────────────────────────────────────────────────────────────*/
 footer {
   background: var(--bg);
-  text-align: center;
   color: var(--text-muted);
+  text-align: center;
   padding: 1.5em 0;
   font-size: 0.9rem;
 }
 
-footer a {
-  font-family: 'Inter', sans-serif;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
 /*─────────────────────────────────────────────────────────────────
-  12. RESPONSIVE ADJUSTMENTS
+  12. RESPONSIVE + HAMBURGER DROPDOWN
 ─────────────────────────────────────────────────────────────────*/
-@media (max-width: 768px) {
-  nav ul {
-    gap: 1em;
+@media screen and (max-width: 768px) {
+  #menu {
+    display: block;
+  }
+  nav#header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg);
+    height: 100vh;
+    width: 7rem;
+    flex-direction: column;   /* mobile: vertical */
   }
 
-  #experience .job,
-  .project {
-    margin-bottom: 1.5em;
-  }
-}
-
-@media (max-width: 480px) {
-  header .container {
-    flex-direction: column;
-    gap: 1em;
+  nav#header-nav.show {
+    display: flex;
   }
 
-  nav ul {
-    /* Allow wrapping on very small screens */
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
+  nav#header-nav ul {
+    flex-direction: column;   /* mobile: vertical */
+    row-gap: 5rem;
+    margin-top: 3rem;
+    padding: 0;
   }
 }

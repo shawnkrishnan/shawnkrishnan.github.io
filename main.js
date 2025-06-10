@@ -1,28 +1,15 @@
-// Mobile menu toggle
-const btn = document.getElementById('menu-toggle');
-const navList = document.querySelector('nav ul');
+// Toggle hamburger & dropdown
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu");
+  const nav     = document.getElementById("header-nav");
+  const header  = document.querySelector("header");
 
-btn.addEventListener('click', () => {
-  navList.classList.toggle('open');
-});
+  menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+    menuBtn.classList.toggle("is-active");
+  });
 
-// Close mobile menu on link click
-document.querySelectorAll('nav a').forEach(link =>
-  link.addEventListener('click', () => navList.classList.remove('open'))
-);
-
-// Highlight active section on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  let scrollY = window.pageYOffset;
-  sections.forEach(current => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 80;
-    const sectionId = current.getAttribute('id');
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector(`nav ul a[href="#${sectionId}"]`).classList.add('active');
-    } else {
-      document.querySelector(`nav ul a[href="#${sectionId}"]`).classList.remove('active');
-    }
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 10);
   });
 });

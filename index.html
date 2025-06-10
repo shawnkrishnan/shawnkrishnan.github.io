@@ -4,192 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shawn Krishnan | Portfolio</title>
-
-  <!-- MAIN STYLESHEET -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- ========================================
-       HEADER / NAVIGATION (sticky)
-       ======================================== -->
   <header>
     <div class="container">
-      <!-- Logo / Name -->
-      <a href="#about" class="logo">Shawn Krishnan</a>
-
-      <!-- Navigation Links -->
-      <nav>
+      <a href="index.html" class="logo">Shawn Krishnan</a>
+  
+      <nav id="header-nav">
         <ul>
-          <li><a href="#about" class="active">About</a></li>
-          <li><a href="#experience">Work Experience</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#ml-projects">ML Projects</a></li>
-          <li><a href="#me-projects">ME Projects</a></li>
-          <li><a href="#contact">LinkedIn</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Work Experience</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="publications.html">Academic Publications</a></li>
+          <li><a href="me-projects.html">Engineering Projects</a></li>
+          <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
         </ul>
       </nav>
+  
+      <button id="menu" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
+  
+  
 
-  <!-- ========================================
-       HERO SECTION
-       (Full‐screen New York background)
-       ======================================== -->
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>Shawn Krishnan</h1>
-      <p>Currently: Founder @SlideVox Formerly: SWE @ Comtech Telecommunications</p>
-      <a href="#about" class="btn">Explore My Work</a>
+      <p>Currently working as a Co-Founder with Professor Amir Barati Fairmani on a Video Generation Start-Up called DocuSlides</p>
+      <a href="about.html" class="btn">Explore My Work</a>
     </div>
   </section>
 
-  <!-- ========================================
-       ABOUT SECTION
-       ======================================== -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        [Insert concise bio here: who you are, what you do, and your passions.]
-      </p>
-      <p>
-        [Add a second paragraph with a bit more background—education, interests, etc.]
-      </p>
-    </div>
-  </section>
-
-  <!-- ========================================
-       PROFESSIONAL WORK EXPERIENCE
-       ======================================== -->
-  <section id="experience" class="section">
-    <div class="container">
-      <h2>Professional Work Experience</h2>
-
-      <!-- Job 1 -->
-      <div class="job">
-        <h3>Systems Engineer, Comtech Telecommunications</h3>
-        <span class="job-dates">May 2024 – Aug 2024</span>
-        <ul>
-          <li>Developed AWS Lambda NLP pipelines for 911 operator decision support.</li>
-          <li>Integrated multimodal Naive Bayes classifiers into PSAP APIs.</li>
-          <li>Built Flask APIs to package chatbot session data for emergency system analysis.</li>
-        </ul>
-      </div>
-
-      <!-- Job 2 -->
-      <div class="job">
-        <h3>Mechanical AI Lab Research Assistant, CMU</h3>
-        <span class="job-dates">Aug 2024 – Present</span>
-        <ul>
-          <li>Researching PDE optimization via physics-informed neural networks for turbulent flow simulation.</li>
-        </ul>
-      </div>
-
-      <!-- Add additional positions similarly -->
-    </div>
-  </section>
-
-  <!-- ========================================
-       BLOG SECTION
-       ======================================== -->
-  <section id="blog" class="section">
-    <div class="container">
-      <h2>Blog</h2>
-      <ul class="blog-list">
-        <li>
-          <a href="https://example.com/post1" target="_blank">
-            Understanding Physics‐Informed Neural Networks
-          </a>
-          <span>— Mar 2025</span>
-        </li>
-        <li>
-          <a href="https://example.com/post2" target="_blank">
-            PyTorch vs TensorFlow: My Experience
-          </a>
-          <span>— Feb 2025</span>
-        </li>
-        <!-- Add more posts here -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- ========================================
-       MACHINE LEARNING PROJECTS
-       ======================================== -->
-  <section id="ml-projects" class="section">
-    <div class="container">
-      <h2>Machine Learning Projects</h2>
-
-      <!-- Project 1 -->
-      <div class="project">
-        <h3>Accent‐Conditioned TTS</h3>
-        <p>
-          Extended Grad‐TTS with LoRA to synthesize bilingual accents. Achieved 95% accent identification accuracy.
-        </p>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project">
-        <h3>DPOT Foundation Model Benchmarking</h3>
-        <p>
-          Benchmarked DPOT, Poseidon, and Transolver on Darcy flows—DPOT was 40% faster with &lt; 5% error.
-        </p>
-      </div>
-
-      <!-- Add more ML projects similarly -->
-    </div>
-  </section>
-
-  <!-- ========================================
-       MECHANICAL ENGINEERING PROJECTS
-       ======================================== -->
-  <section id="me-projects" class="section">
-    <div class="container">
-      <h2>Mechanical Engineering Projects</h2>
-
-      <!-- Project 1 -->
-      <div class="project">
-        <h3>Autonomous Tesla Vehicle Control Simulation</h3>
-        <p>
-          Developed EKF‐SLAM in Webots for GPS‐denied localization—maintained &lt; 5 m trajectory error.
-        </p>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project">
-        <h3>Adaptive Prosthetic Control via Hybrid Learning</h3>
-        <p>
-          Designed a hybrid VAIL + PPO controller in MuJoCo for ankle prosthesis—achieved stable natural gait.
-        </p>
-      </div>
-
-      <!-- Add more ME projects here -->
-    </div>
-  </section>
-
-  <!-- ========================================
-       LINKEDIN CONNECT BUTTON
-       ======================================== -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Connect on LinkedIn</h2>
-      <a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank" class="btn-linkedin">
-        Connect with me on LinkedIn
-      </a>
-    </div>
-  </section>
-
-  <!-- ========================================
-       FOOTER
-       ======================================== -->
   <footer>
     <div class="container center">
       <p>&copy; 2025 Shawn Krishnan</p>
-      <p>
-        <a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a>
-      </p>
+      <p><a href="mailto:shawnakk@andrew.cmu.edu">shawnakk@andrew.cmu.edu</a></p>
     </div>
   </footer>
 </body>
