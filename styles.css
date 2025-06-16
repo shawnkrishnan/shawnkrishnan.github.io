@@ -283,6 +283,81 @@ nav#header-nav a.active {
   color: var(--accent);
   margin-bottom: 1em;
 }
+/*─────────────────────────────────────────────────────────────────
+  PROJECT CARD (accordion + tags + images)
+─────────────────────────────────────────────────────────────────*/
+.project-card {
+  border: 1px solid var(--accent);
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  color: var(--text-light);
+  transition: background var(--transition);
+}
+
+.project-card:hover {
+  background: #1a1a1a;
+}
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-title {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin: 0;
+}
+
+.project-tags {
+  font-family: 'Merriweather', serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.project-short {
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.toggle-more {
+  align-self: flex-start;
+  background: var(--accent);
+  color: #121212;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Merriweather', serif;
+  transition: background var(--transition);
+}
+
+.toggle-more:hover {
+  background: #c2942d;
+}
+
+.project-more {
+  display: none;
+  margin-top: 1rem;
+  font-family: 'Merriweather', serif;
+}
+
+.project-more.active {
+  display: block;
+}
+
+.project-more img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+
 
 /*─────────────────────────────────────────────────────────────────
   IMPORT SERIF FONT FOR BODY TEXT
@@ -464,4 +539,75 @@ footer {
     width: 100%;
     padding: 0.5em 1rem;
   }
+}
+/* Header */
+.nav-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-wrapper ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-wrapper a {
+  text-decoration: none;
+  color: var(--text-light);
+}
+.nav-wrapper .active {
+  font-weight: bold;
+}
+
+/* Section title */
+.section-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Banner image */
+.publications-banner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 2rem;
+}
+
+/* Grid layout */
+.publication-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 700px) {
+  .publication-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Card */
+.pub-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.pub-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.pub-meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.pub-description {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.pub-links a {
+  margin-right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
 }

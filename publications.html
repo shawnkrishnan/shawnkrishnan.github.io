@@ -5,6 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Academic Publications | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .publication-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .pub-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+    }
+    .pub-title {
+      font-family: 'Eyeglass Normal', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .pub-authors,
+    .pub-lab,
+    .pub-prof,
+    .pub-venue,
+    .pub-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .pub-image {
+      display: block;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .pub-links a {
+      margin-right: 1rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .learn-more {
+      margin-left: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +62,7 @@
             <li><a href="about.html">About</a></li>
             <li><a href="experience.html">Work Experience</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="publications.html">Academic Publications</a></li>
+            <li><a href="publications.html" class="active">Academic Publications</a></li>
             <li><a href="me-projects.html">Engineering Projects</a></li>
             <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
           </ul>
@@ -28,10 +73,87 @@
 
   <section id="publications" class="section">
     <div class="container">
-      <h2>Academic Publications</h2>
-      <p>Reinforcement Learning-based Control Policy Optimization for Transtibial Prosthesis via Physics-Informed Simulation</p>
-      <p></p>
-      <p></p>
+      <h2 class="section-title">Academic Publications</h2>
+
+      <div class="publication-grid">
+
+        <div class="pub-card">
+          <img src="images/RL_poster.png" alt="Prosthesis RL simulation" class="pub-image">
+          <h3 class="pub-title">
+            Reinforcement Learning–Based Control Policy Optimization for Transtibial Prosthesis via Physics-Informed Simulation
+          </h3>
+          <p class="pub-authors">J. He, S. Krishnan, M. Lancastre, E. Zhao</p>
+          <p class="pub-lab">
+            <strong>Lab:</strong> Meta Mobility Lab  
+            <a href="https://metamobility.cmu.edu/" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-prof">
+            <strong>Professor:</strong> Inseung Kang  
+            <a href="https://www.meche.engineering.cmu.edu/directory/bios/kang-inseung.html" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-venue">
+            Pending arXiv preprint; planned submission to relevant conferences
+          </p>
+          <p class="pub-description">
+            We compare imitation learning and PPO-based RL controllers for ankle assistive devices in MuJoCo, demonstrating that IL yields more stable gait reproduction and longer walking durations under varied state-space and prosthetic configurations.
+          </p>
+          <p class="pub-links">
+            <a href="reports/rl_prosthesis_simulation.pdf" target="_blank">PDF</a> 
+            <a href="https://github.com/JintongHe/AIE_Project_Team1" target="_blank">Code</a>
+          </p>
+        </div>
+
+        <div class="pub-card">
+          <img src="images/marl_llm_thumb.jpg" alt="Multi-Agent RL LLM" class="pub-image">
+          <h3 class="pub-title">
+            Multi-Agent Reinforcement Learning with Large Language Models for Safe Path Planning
+          </h3>
+          <p class="pub-authors">R. Graves, A. Chase, S. Krishnan, E. Zhao, J. Ali</p>
+          <p class="pub-lab">
+            <strong>Lab:</strong> SAFE AI Lab  
+            <a href="https://safeai-lab.github.io/" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-prof">
+            <strong>Professor:</strong> Ding Zhao  
+            <a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-venue">
+            Pending arXiv preprint; planned submission to relevant conferences
+          </p>
+          <p class="pub-description">
+            We integrate GPT-4 into a hierarchical MARL framework to classify obstacle severity and dynamically adjust penalty-based rewards, enabling context-aware, safety-driven path planning in unstructured environments.
+          </p>
+          <p class="pub-links">
+            <a href="reports/marl_llm_path_planning.pdf" target="_blank">PDF</a>
+            <a href="https://github.com/gravesreid/MAPush" target="_blank">Code</a>
+          </p>
+        </div>
+
+        <div class="pub-card">
+          <img src="images/pde_benchmark_thumb.jpg" alt="Available Soon" class="pub-image">
+          <h3 class="pub-title">PDE Foundation Model Benchmarking</h3>
+          <p class="pub-authors">S. Krishnan, A. Zhou, A. B. Farimani</p>
+          <p class="pub-lab">
+            <strong>Lab:</strong> Mechanical Artificial Intelligence Lab (MAIL)  
+            <a href="https://sites.google.com/view/barati" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-prof">
+            <strong>Professor:</strong> Amir Barati Farimani  
+            <a href="https://www.meche.engineering.cmu.edu/directory/bios/barati-farimani-amir.html" class="learn-more" target="_blank">Learn more</a>
+          </p>
+          <p class="pub-venue">
+            Pending arXiv preprint; planned submission to relevant conferences
+          </p>
+          <p class="pub-description">
+            We evaluate DPOT, Poseidon, and Transolver on a suite of PDE problems, including Darcy, Burgers, Allen-Cahn, and Airfoil flows, measuring generalization to unseen geometries and the effects of LoRA fine-tuning on error and inference speed.
+          </p>
+          <p class="pub-links">
+            <a href="#" target="_blank">Available Soon: PDF</a>
+            <a href="#" target="_blank">Available Soon: Code</a>
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 

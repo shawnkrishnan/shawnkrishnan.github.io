@@ -6,47 +6,68 @@
   <title>Engineering Projects | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Quick accordion styling */
-    .accordion-title {
-      cursor: pointer;
-      padding: 1rem;
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 1.2rem;
-      background: var(--card-bg);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      margin-bottom: 0.5rem;
-      transition: background 0.3s ease;
-    }
-
-    .accordion-title:hover {
-      background: #333;
-    }
-
-    .accordion-content {
-      display: none;
-      padding: 1rem;
-      background: var(--bg);
-      color: var(--text-light);
-      font-family: 'Merriweather', serif;
-      border: 1px solid var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .accordion-content.active {
-      display: block;
-    }
-
-    /* Section headings */
-    .project-category {
-      margin-top: 3rem;
-    }
-
+    .project-category { margin-top: 3rem; }
     .project-category h3 {
       font-family: 'Eyeglass Normal', serif;
       font-size: 1.5rem;
       color: var(--accent);
       margin-bottom: 1rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .project-header { display: flex; flex-direction: column; gap: .5rem; }
+    .project-title { font-family: 'Eyeglass Normal', serif; font-size: 1.3rem; color: var(--text-light); }
+    .project-tags, .project-meta { font-size: .9rem; color: var(--text-muted); }
+    .project-short { margin-bottom: .5rem; color: var(--text-light); font-style: italic; }
+    .toggle-more {
+      align-self: flex-start;
+      padding: .4rem .8rem;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: .3rem;
+      cursor: pointer;
+    }
+    .project-card img {
+      width: 150px;
+      height: auto;
+      border-radius: 4px;
+      transition: width .3s ease;
+      cursor: pointer;
+      margin-bottom: .5rem;
+    }
+
+    /* Summary styling */
+    .summary {
+      display: none;
+      margin-top: 1rem;
+      font-family: 'Merriweather', serif;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .summary.active { display: block; }
+    .summary ul {
+      list-style: disc inside;
+      padding-left: 1rem;
+      margin: 0;
+    }
+    .summary li {
+      margin-bottom: .5rem;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .4rem .8rem;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      border-radius: .3rem;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -55,73 +76,159 @@
   <header>
     <div class="container">
       <a href="index.html" class="logo">Shawn Krishnan</a>
-      <div class="nav-wrapper">
-        <nav id="header-nav">
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Work Experience</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="publications.html">Academic Publications</a></li>
-            <li><a href="me-projects.html">Engineering Projects</a></li>
-            <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav id="header-nav" class="nav-wrapper">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Work Experience</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="publications.html">Academic Publications</a></li>
+          <li><a href="me-projects.html" class="active">Engineering Projects</a></li>
+          <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <section id="me-projects" class="section">
     <div class="container">
-      <h2>Mechanical Engineering Projects</h2>
+      <h2>Engineering &amp; Design Projects</h2>
 
-      <!-- Graduate Projects -->
+      <!-- Graduate Machine Learning Projects -->
       <div class="project-category">
-        <h3>Graduate Projects</h3>
-
-        <div class="accordion-title">Project Title 1</div>
-        <div class="accordion-content">Description for Project 1.</div>
-
-        <div class="accordion-title">Project Title 2</div>
-        <div class="accordion-content">Description for Project 2.</div>
-
-        <div class="accordion-title">Project Title 3</div>
-        <div class="accordion-content">Description for Project 3.</div>
-
-        <div class="accordion-title">Project Title 4</div>
-        <div class="accordion-content">Description for Project 4.</div>
-
-        <div class="accordion-title">Project Title 5</div>
-        <div class="accordion-content">Description for Project 5.</div>
+        <h3>Graduate Machine Learning Projects</h3>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tags">Duration: 4 months</span>
+            <h3 class="project-title">Interpolating Accents in Text-To-Speech</h3>
+            <span class="project-meta">Group Members: Richard Ahn, Shawn Krishnan, Benjamin Lash</span>
+            <span class="project-meta"><strong>Course:</strong> 10-623 Generative AI</span>
+            <p class="project-short">
+              This project presents a continuous-accent TTS model built on Grad-TTS, where accent embeddings are learned and applied via a diffusion framework.
+            </p>
+            <img src="images/genai_tts_full.jpg" alt="TTS model diagram">
+            <button class="toggle-more">More info</button>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>Implemented a continuous accent embedding network within the Grad-TTS architecture.</li>
+              <li>Preprocessed and labeled Common Voice 12.0 data to enable flexible accent conditioning.</li>
+              <li>Evaluated the model’s performance using objective metrics and a human Mean Opinion Score survey.</li>
+            </ul>
+            <a href="reports/GenAI_TTS_Project.pdf" class="download-link" target="_blank">Download report</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Undergraduate Projects -->
+      <!-- Graduate Mechanical Engineering Projects -->
       <div class="project-category">
-        <h3>Undergraduate Projects</h3>
+        <h3>Graduate Mechanical Engineering Projects</h3>
 
-        <div class="accordion-title">Project Title 6</div>
-        <div class="accordion-content">Description for Project 6.</div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tags">Duration: 4 months</span>
+            <h3 class="project-title">CFD Decarbonization Building Study</h3>
+            <span class="project-meta">Group Members: Tej Jolly, Vedant Singh, Shawn Krishnan</span>
+            <span class="project-meta"><strong>Course:</strong> 24-718 Computational Fluid Dynamics</span>
+            <p class="project-short">
+              We investigate CO₂ re-entrainment around building geometries via 2D CFD simulations, identifying optimal aspect ratios that minimize recirculation.
+            </p>
+            <img src="images/cfd_full.jpg" alt="CFD simulation snapshot">
+            <button class="toggle-more">More info</button>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>Configured boundary conditions and solver settings to simulate 2D airflow and CO₂ transport.</li>
+              <li>Ran parametric height-to-width sweeps, finding the 10×20 configuration reduced re-entrainment most effectively.</li>
+              <li>Visualized flow fields and concentration maps to recommend geometry changes for lower turbulence.</li>
+            </ul>
+            <a href="reports/CFD_project_report.pdf" class="download-link" target="_blank">Download report</a>
+          </div>
+        </div>
 
-        <div class="accordion-title">Project Title 7</div>
-        <div class="accordion-content">Description for Project 7.</div>
-
-        <div class="accordion-title">Project Title 8</div>
-        <div class="accordion-content">Description for Project 8.</div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tags">Duration: 4 months</span>
+            <h3 class="project-title">Automated Customizable Ice Dissolving System (A.C.I.D.S)</h3>
+            <span class="project-meta">Group Members: Haoran Zheng, Jianhao Tang, Shawn Krishnan, Haoen Li, Zhaonan Shi</span>
+            <span class="project-meta"><strong>Course:</strong> 24-671 Electromechanical System Design</span>
+            <p class="project-short">
+              This work develops an autonomous turret that dispenses de-icing fluid to melt ice in hard-to-reach areas.
+            </p>
+            <img src="images/acids_full.jpg" alt="A.C.I.D.S. prototype">
+            <button class="toggle-more">More info</button>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>Conducted user surveys to define requirements and iterated through concept sketches.</li>
+              <li>Prototyped and reinforced the structure, upgrading from servos to stepper motors.</li>
+              <li>Implemented a Raspberry Pi–to–Arduino control pipeline for autonomous targeting and dispensing.</li>
+            </ul>
+            <a href="reports/EMSD_report.pdf" class="download-link" target="_blank">Download report</a>
+          </div>
+        </div>
       </div>
+
+      <!-- Undergraduate Mechanical Engineering Projects -->
+      <div class="project-category">
+        <h3>Undergraduate Mechanical Engineering Projects</h3>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tags">Duration: 2 months</span>
+            <h3 class="project-title">Arm-Attachable Vise Assistant</h3>
+            <span class="project-meta">Group Members: Jackson Wood, Shawn Krishnan, Junhan Chen</span>
+            <span class="project-meta"><strong>Course:</strong> 24-370 Design: Methods & Applications</span>
+            <p class="project-short">
+              This design integrates a two-stage gearbox into a wearable brace to reduce wrist torque by 70% when operating a vise.
+            </p>
+            <img src="images/vise_full.jpg" alt="Vise assistant model">
+            <button class="toggle-more">More info</button>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>Designed a two-stage gearbox based on biomechanical torque analysis to offload user effort.</li>
+              <li>3D-printed and iterated components after user testing to refine fit and functionality.</li>
+              <li>Incorporated adjustable straps and stops for various hand sizes and torque limits.</li>
+            </ul>
+            <a href="reports/Design1_Assistive.pdf" class="download-link" target="_blank">Download report</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tags">Duration: 4 months</span>
+            <h3 class="project-title">4-DOF Video Jib System</h3>
+            <span class="project-meta">Group Members: Elsa Schleicher, Isaiah Asah, Joshua Pen, Manuel Lancastre, Shawn Krishnan</span>
+            <span class="project-meta"><strong>Course:</strong> 24-441 Product Design</span>
+            <p class="project-short">
+              We built a modular 4-DOF jib, using FEA to optimize stiffness and weight under realistic camera loads.
+            </p>
+            <img src="images/jib_full.jpg" alt="Video jib diagram">
+            <button class="toggle-more">More info</button>
+          </div>
+          <div class="summary">
+            <ul>
+              <li>Performed FEA on arm segments to determine optimal tube dimensions for minimal deflection.</li>
+              <li>Engineered a backlash-free pan/tilt head using preloaded bearings for smooth motion.</li>
+              <li>Conducted cost analysis to balance material choice between weight and budget.</li>
+            </ul>
+            <a href="reports/design2_report.pdf" class="download-link" target="_blank">Download report</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <footer>
-    <div class="container center">
-      <p>&copy; 2025 Shawn Krishnan</p>
-    </div>
-  </footer>
-
   <script>
-    // Simple accordion logic
-    document.querySelectorAll('.accordion-title').forEach(title => {
-      title.addEventListener('click', () => {
-        const content = title.nextElementSibling;
-        content.classList.toggle('active');
+    document.querySelectorAll('.toggle-more').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.project-card');
+        const sum  = card.querySelector('.summary');
+        const img  = card.querySelector('img');
+        const active = sum.classList.toggle('active');
+        btn.textContent = active ? 'Less info' : 'More info';
+        img.style.width = active ? '100%' : '150px';
       });
     });
   </script>
