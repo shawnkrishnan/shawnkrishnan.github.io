@@ -51,29 +51,27 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #000000;
+  background: var(--bg);
   transition: background var(--transition);
   display: flex;
-  justify-content: center;   /* center the .container inside header */
+  justify-content: center;
   align-items: center;
-  width: 100%;               /* full width — no max-width here! */
-  padding: 2rem 0rem;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+header.scrolled {
+  background: var(--bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 header .container {
   display: flex;
   justify-content: space-between;
-  align-items: center;        /* correct — 'left' is not a valid value here */
+  align-items: center;
   width: 100%;
-  max-width: clamp(300px, 95vw, 2000px); /* limit width of content */
-  padding: 0;
+  max-width: clamp(300px, 95vw, 2000px);
   margin: 0 auto;
-  text-align: left;
-}
-/* WHEN SCROLLED */
-header.scrolled {
-  background: var(#000000);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* LOGO */
@@ -83,36 +81,19 @@ header.scrolled {
   color: var(--accent);
   text-decoration: none;
   white-space: nowrap;
-  display: flex;
-  align-items: left;
-  justify-content: flex-start;
-  margin: 0;                /* no auto centering */
-  padding: 0; 
-  padding-right: 4rem;              /* no padding */
+  margin-right: 4rem;
 }
 
-/* NAV aligned right */
-nav#header-nav {
+/* NAV */
+.nav-wrapper {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
-
 nav#header-nav ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;         /* this prevents wrapping */
-  white-space: nowrap;   /* horizontal! */
   gap: 2em;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
-
-nav#header-nav li {
-  margin: 0;
-}
-
 nav#header-nav a {
   font-family: 'Eyeglass Normal', serif;
   text-transform: uppercase;
@@ -123,81 +104,29 @@ nav#header-nav a {
   border-radius: 4px;
   transition: background var(--transition), color var(--transition);
 }
-
 nav#header-nav a:hover,
 nav#header-nav a.active {
   background: var(--accent);
   color: #121212;
 }
 
-/* HAMBURGER BUTTON (hidden on desktop) */
-#menu {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.75rem;
-  color: var(--text-light);
-  cursor: pointer;
-}
-
-#menu.is-active {
-  transform: rotate(90deg);
-}
-
-/* RESPONSIVE — MOBILE ONLY */
-@media screen and (max-width: 768px) {
-  /* show hamburger */
-  #menu {
-    display: block;
-  }
-
-  /* hide nav by default */
-  nav#header-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--bg);
-    height: 100vh;
-    width: 7rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 2rem;
-  }
-
-  /* show nav when toggled */
-  nav#header-nav.show {
-    display: flex;
-  }
-
-  nav#header-nav ul {
-    flex-direction: column;
-    row-gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav#header-nav li {
-    margin: 0;
-    text-align: left;
-    padding-left: 1rem;
-  }
-}
-
-
 /* HAMBURGER BUTTON */
-#menu {
+#menu-toggle {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
   background: none;
   border: none;
-  font-size: 1.75rem;
-  color: var(--text-light);
   cursor: pointer;
 }
-
-#menu.is-active {
-  transform: rotate(90deg);
+#menu-toggle .bar {
+  width: 100%;
+  height: 3px;
+  background: var(--text-light);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
 }
 
 /*─────────────────────────────────────────────────────────────────
@@ -212,36 +141,32 @@ nav#header-nav a.active {
   justify-content: center;
   text-align: center;
 }
-
 .hero .overlay {
   position: absolute;
   inset: 0;
   background: var(--overlay);
 }
-
 .hero .hero-content {
   position: relative;
   z-index: 1;
   padding: 1em;
 }
-
-.hero h1, .hero p, .hero .btn {
+.hero h1,
+.hero p,
+.hero .btn {
   font-family: 'Eyeglass Normal', serif;
 }
-
 .hero h1 {
   font-size: 5rem;
   letter-spacing: 0.1em;
   color: var(--text-light);
   margin-bottom: 0.5em;
 }
-
 .hero p {
   font-size: 1.25rem;
   color: var(--text-muted);
   margin-bottom: 1.5em;
 }
-
 .hero .btn {
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -252,22 +177,17 @@ nav#header-nav a.active {
   border-radius: 4px;
   transition: background var(--transition);
 }
-
 .hero .btn:hover {
   background: #c2942d;
 }
 
 /*─────────────────────────────────────────────────────────────────
-  5–11. OTHER SECTIONS & FOOTER
-─────────────────────────────────────────────────────────────────*/
-/*─────────────────────────────────────────────────────────────────
-  SECTION BASE STYLE
+  5. SECTION BASE STYLE
 ─────────────────────────────────────────────────────────────────*/
 .section {
   background: var(--bg);
   padding: 6em 0;
 }
-
 .container {
   width: 90%;
   max-width: clamp(300px, 85vw, 1200px);
@@ -283,6 +203,60 @@ nav#header-nav a.active {
   color: var(--accent);
   margin-bottom: 1em;
 }
+
+/*─────────────────────────────────────────────────────────────────
+  ABOUT / CAROUSEL
+─────────────────────────────────────────────────────────────────*/
+#about h2 {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 2rem;
+  color: var(--accent);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+}
+#about p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Animated scrolling strip */
+.image-strip {
+  overflow: hidden;
+}
+.strip-inner {
+  display: flex;
+  animation: scroll-left 20s linear infinite;
+}
+.strip-item {
+  flex: 0 0 250px;
+  margin-right: 1rem;
+  text-align: center;
+}
+.strip-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform var(--transition);
+}
+.strip-item:hover img {
+  transform: translateY(-10px);
+}
+.strip-item .caption {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /*─────────────────────────────────────────────────────────────────
   PROJECT CARD (accordion + tags + images)
 ─────────────────────────────────────────────────────────────────*/
@@ -294,36 +268,29 @@ nav#header-nav a.active {
   color: var(--text-light);
   transition: background var(--transition);
 }
-
 .project-card:hover {
   background: #1a1a1a;
 }
-
 .project-header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .project-title {
   font-family: 'Eyeglass Normal', serif;
   font-size: 1.3rem;
   color: var(--accent);
-  margin: 0;
 }
-
 .project-tags {
   font-family: 'Merriweather', serif;
   font-size: 0.9rem;
   color: var(--text-muted);
 }
-
 .project-short {
   font-family: 'Merriweather', serif;
   font-size: 1rem;
   margin: 0.5rem 0;
 }
-
 .toggle-more {
   align-self: flex-start;
   background: var(--accent);
@@ -335,29 +302,23 @@ nav#header-nav a.active {
   font-family: 'Merriweather', serif;
   transition: background var(--transition);
 }
-
 .toggle-more:hover {
   background: #c2942d;
 }
-
 .project-more {
   display: none;
   margin-top: 1rem;
   font-family: 'Merriweather', serif;
 }
-
 .project-more.active {
   display: block;
 }
-
 .project-more img {
   max-width: 100%;
   height: auto;
   margin-top: 1rem;
   border-radius: 6px;
 }
-
-
 
 /*─────────────────────────────────────────────────────────────────
   IMPORT SERIF FONT FOR BODY TEXT
@@ -378,17 +339,6 @@ footer a {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  PROJECT AND EXPERIENCE HEADINGS
-─────────────────────────────────────────────────────────────────*/
-.project h3,
-#experience .job h3 {
-  font-family: 'Merriweather', serif;
-  font-size: 1.3rem;
-  color: var(--accent);
-  margin-bottom: 0.5em;
-}
-
-/*─────────────────────────────────────────────────────────────────
   EXPERIENCE LISTS
 ─────────────────────────────────────────────────────────────────*/
 #experience .job ul {
@@ -396,9 +346,7 @@ footer a {
   font-family: 'Merriweather', serif;
   margin-top: 0.5em;
 }
-
 #experience .job li {
-  font-family: 'Merriweather', serif;
   margin-bottom: 1em;
 }
 
@@ -410,18 +358,13 @@ footer a {
   font-family: 'Merriweather', serif;
   padding: 0;
 }
-
 .blog-list li {
   margin-bottom: 1em;
-  font-family: 'Merriweather', serif;
 }
-
 .blog-list li a {
   color: var(--accent);
-  font-family: 'Merriweather', serif;
   text-decoration: none;
 }
-
 .blog-list li a:hover {
   text-decoration: underline;
 }
@@ -429,25 +372,39 @@ footer a {
 /*─────────────────────────────────────────────────────────────────
   PUBLICATIONS LIST
 ─────────────────────────────────────────────────────────────────*/
-#publications ul {
-  list-style: disc inside;
-  font-family: 'Merriweather', serif;
-  margin-top: 0.5em;
+.publication-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
-
-#publications li {
-  font-family: 'Merriweather', serif;
-  margin-bottom: 1em;
+@media (min-width: 700px) {
+  .publication-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
-#publications li a {
+.pub-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.pub-title {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+}
+.pub-meta {
+  font-size: .9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.pub-description {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.pub-links a {
+  margin-right: 1rem;
+  font-weight: bold;
   color: var(--accent);
-  font-family: 'Merriweather', serif;
-  text-decoration: none;
-}
-
-#publications li a:hover {
-  text-decoration: underline;
 }
 
 /*─────────────────────────────────────────────────────────────────
@@ -464,7 +421,6 @@ footer a {
   text-decoration: none;
   transition: background var(--transition);
 }
-
 #contact .btn-linkedin:hover {
   background: #c2942d;
 }
@@ -481,133 +437,60 @@ footer {
   font-family: 'Merriweather', serif;
 }
 
-
 /*─────────────────────────────────────────────────────────────────
-  12. RESPONSIVE + HAMBURGER DROPDOWN
+  12. RESPONSIVE + MOBILE NAV DRAWER
 ─────────────────────────────────────────────────────────────────*/
-@media screen and (max-width: 768px) {
+/*───────────────────────────────────────────────────────────────
+  MOBILE OPTIMIZATIONS (≤768px)
+───────────────────────────────────────────────────────────────*/
+@media (max-width: 768px) {
+
+  /* 1) Reduce header padding & show hamburger */
   header {
-    padding: 1rem;  /* uniform padding on all sides */
-  }
-
-  header .container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-width: none;  /* critical — do not limit width on mobile */
-  }
-
-  #menu {
-    display: block;
-  }
-
-  nav#header-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--bg);
-    height: auto;
-    width: 100%;  /* full width for mobile dropdown */
-    flex-direction: column;
-    align-items: flex-start;
     padding: 1rem;
   }
-
-  nav#header-nav.show {
+  #menu-toggle {
     display: flex;
   }
-
-  nav#header-nav ul {
-    flex-direction: column;
-    row-gap: 1.5rem;
-    margin: 0;
-    padding: 0;
+  /* Slide-in nav drawer full width */
+  nav#header-nav {
     width: 100%;
+    right: -100%;
   }
 
-  nav#header-nav li {
-    width: 100%;
-    text-align: left;
+  /* 2) Shrink about text */
+  #about p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  #about h2 {
+    font-size: 1.5rem;
   }
 
-  nav#header-nav a {
-    display: block;
-    width: 100%;
-    padding: 0.5em 1rem;
+  /* 3) Scale down the photo strip */
+  .strip-item {
+    flex: 0 0 40%;       /* item takes 40% of viewport width */
+    margin-right: .5rem;
   }
-}
-/* Header */
-.nav-wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
-.nav-wrapper ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-.nav-wrapper a {
-  text-decoration: none;
-  color: var(--text-light);
-}
-.nav-wrapper .active {
-  font-weight: bold;
-}
-
-/* Section title */
-.section-title {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-/* Banner image */
-.publications-banner img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto 2rem;
-}
-
-/* Grid layout */
-.publication-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-@media (min-width: 700px) {
-  .publication-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .strip-item img {
+    width: 100%;         /* fluid within its flex box */
+    height: auto;
   }
-}
+  .strip-inner {
+    width: calc((40vw + .5rem) * 6); /* 6 items */
+  }
+  @keyframes scroll-left {
+    to { transform: translateX(calc(-1 * (40vw + .5rem) * 3)); }
+  }
 
-/* Card */
-.pub-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-.pub-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-}
-.pub-meta {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-}
-.pub-description {
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-.pub-links a {
-  margin-right: 1rem;
-  text-decoration: none;
-  font-weight: bold;
+  /* 4) Resize resume canvas container */
+  #resume canvas {
+    width: 100% !important;  /* fill mobile width */
+    height: auto !important; /* maintain aspect */
+  }
+
+  /* 5) Stack everything with comfortable padding */
+  .container {
+    padding: 0 1rem;
+  }
 }
