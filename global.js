@@ -7,19 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('menuBtn =', menuBtn, 'nav =', nav);
   
     if (menuBtn && nav) {
-      menuBtn.addEventListener('click', () => {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent the document click handler from immediately closing it
         console.log('hamburger clicked');
         nav.classList.toggle('open');
         console.log('nav classes:', nav.className);
       });
     }
   
+    // close the mobile nav if you click anywhere outside the nav or hamburger
+    document.addEventListener('click', (e) => {
+      const isClickInsideNav    = nav.contains(e.target);
+      const isClickOnHamburger  = menuBtn.contains(e.target);
+  
+      if (nav.classList.contains('open') && !isClickInsideNav && !isClickOnHamburger) {
+        console.log('click outside, closing nav');
+        nav.classList.remove('open');
+      }
+    });
+  
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       if (!header) return;
       const scrolled = window.scrollY > 50;
       header.classList.toggle('scrolled', scrolled);
-      //console.log('scrollY =', window.scrollY, 'scrolled?', scrolled);
     });
   
   

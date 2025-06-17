@@ -49,6 +49,16 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* explicitly style the hamburger button so it never falls back to a tiny system font */
+#menu {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 2.5rem;    /* or bump to 3rem if you like */
+  line-height: 1;
+}
 
 /*─────────────────────────────────────────────────────────────────
   3. HEADER / NAVIGATION
