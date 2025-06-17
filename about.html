@@ -5,92 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css"/>
-  <style>
-    /* Header/nav (unchanged) */
-    header .container { display:flex; align-items:center; justify-content:space-between; }
-    header .logo { /* your existing logo styling */ }
-    nav#header-nav ul { /* your existing nav styling */ }
-
-    /* About text */
-    #about h2 {
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 2rem;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-    }
-    #about p {
-      font-size: 1.25rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    /* Photo-album strip container */
-    #interests {
-      padding: 2rem 0;
-    }
-    #interests h3 {
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 1.75rem;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: .5rem;
-    }
-    #interests p.intro {
-      text-align: center;
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    /* The animated strip */
-    .image-strip {
-      overflow: hidden;
-      /* hide native scrollbar */
-    }
-    .strip-inner {
-      display: flex;
-      /* duplicate items twice */
-      animation: scroll-left 20s linear infinite;
-    }
-    .strip-item {
-      flex: 0 0 250px;
-      margin-right: 1rem;
-      text-align: center;
-    }
-    .strip-item img {
-      width: 700px;
-      height: 1000px;
-      object-fit: cover;
-      border: 4px solid var(--accent);
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: transform .3s;
-    }
-    .strip-item:hover img {
-      transform: translateY(-10px);
-    }
-    .strip-item .caption {
-      margin-top: .5rem;
-      font-size: .9rem;
-      color: var(--text-muted);
-    }
-
-    /* Keyframes for continuous scroll */
-    @keyframes scroll-left {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    /* Resume canvas */
-    #resume canvas {
-      display: block;
-      margin: 2rem auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <script src="global.js" defer></script>
 </head>
 
 <body>
@@ -107,20 +23,23 @@
           <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
         </ul>
       </nav>
+      <button id="menu" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <section id="about" class="section">
-    
-    <div class="container">
+    <div class="banner">
       <h2>About Me</h2>
+    </div>
+    <div class="container">
+      <!-- rest of content… -->  
       <p>
         Driven professional with a solid analytical background in Machine Learning and Mechanical Engineering from Carnegie Mellon University. Skilled in problem-solving, effective communication, and strategic thinking. I am an engineer adept at breaking down complex problems, leading decisively, and delivering results.
       </p>
 
       <!-- Animated photo-album strip -->
       <section id="interests">
-        <h3>Interests</h3>
+        <h3><center>Interests</center></h3>
         <p class="intro">When I’m not coding, you’ll find me racing karts, producing beats, or hitting the tennis court.</p>
         <div class="image-strip">
           <div class="strip-inner">
@@ -168,26 +87,5 @@
       <p>&copy; 2025 Shawn Krishnan</p>
     </div>
   </footer>
-
-  <script>
-    // PDF.js setup (renders first page, high-res)
-    const url = 'ShawnKrishnanResume.pdf';
-    const pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
-
-    let canvas = document.getElementById('pdf-render'),
-        ctx = canvas.getContext('2d'),
-        scale = 2.0;
-
-    pdfjsLib.getDocument(url).promise.then(doc =>
-      doc.getPage(1).then(page => {
-        const viewport = page.getViewport({ scale });
-        canvas.width  = viewport.width;
-        canvas.height = viewport.height;
-        page.render({ canvasContext: ctx, viewport });
-      })
-    );
-  </script>
 </body>
 </html>

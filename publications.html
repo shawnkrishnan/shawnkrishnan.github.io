@@ -1,80 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Academic Publications | Shawn Krishnan</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .publication-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .pub-card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-    }
-    .pub-title {
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .pub-authors,
-    .pub-lab,
-    .pub-prof,
-    .pub-venue,
-    .pub-description {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-    }
-    .pub-image {
-      display: block;
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .pub-links a {
-      margin-right: 1rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    .learn-more {
-      margin-left: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Academic Publications | Shawn Krishnan</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 </head>
 
 <body>
   <header>
     <div class="container">
       <a href="index.html" class="logo">Shawn Krishnan</a>
-      <div class="nav-wrapper">
-        <nav id="header-nav">
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="experience.html">Work Experience</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="publications.html" class="active">Academic Publications</a></li>
-            <li><a href="me-projects.html">Engineering Projects</a></li>
-            <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
-          </ul>
-        </nav>
-      </div>
+  
+      <!-- note: nav now carries the .nav-wrapper class -->
+      <nav id="header-nav" class="nav-wrapper">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Work Experience</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="publications.html" class="active">Academic Publications</a></li>
+          <li><a href="me-projects.html">Engineering Projects</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+  
+      <!-- add the mobile toggle button here -->
+      <button id="menu" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <section id="publications" class="section">
+    <div class="banner">
+      <h2>Academic Publications</h2>
+    </div>
     <div class="container">
-      <h2 class="section-title">Academic Publications</h2>
-
+      <!-- publication grid… -->
+  
       <div class="publication-grid">
 
         <div class="pub-card">

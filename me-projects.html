@@ -5,77 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Engineering Projects | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .project-category { margin-top: 3rem; }
-    .project-category h3 {
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .project-card {
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .project-header { display: flex; flex-direction: column; gap: .5rem; }
-    .project-title { font-family: 'Eyeglass Normal', serif; font-size: 1.3rem; color: var(--text-light); }
-    .project-tags, .project-meta { font-size: .9rem; color: var(--text-muted); }
-    .project-short { margin-bottom: .5rem; color: var(--text-light); font-style: italic; }
-    .toggle-more {
-      align-self: flex-start;
-      padding: .4rem .8rem;
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: .3rem;
-      cursor: pointer;
-    }
-    .project-card img {
-      width: 150px;
-      height: auto;
-      border-radius: 4px;
-      transition: width .3s ease;
-      cursor: pointer;
-      margin-bottom: .5rem;
-    }
-
-    /* Summary styling */
-    .summary {
-      display: none;
-      margin-top: 1rem;
-      font-family: 'Merriweather', serif;
-      color: var(--text-light);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .summary.active { display: block; }
-    .summary ul {
-      list-style: disc inside;
-      padding-left: 1rem;
-      margin: 0;
-    }
-    .summary li {
-      margin-bottom: .5rem;
-    }
-    .download-link {
-      display: inline-block;
-      margin-top: .5rem;
-      padding: .4rem .8rem;
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      border-radius: .3rem;
-      font-weight: bold;
-    }
-  </style>
+  <script src="global.js" defer></script>
 </head>
 
 <body>
   <header>
     <div class="container">
       <a href="index.html" class="logo">Shawn Krishnan</a>
+
       <nav id="header-nav" class="nav-wrapper">
         <ul>
           <li><a href="about.html">About</a></li>
@@ -83,19 +20,28 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="publications.html">Academic Publications</a></li>
           <li><a href="me-projects.html" class="active">Engineering Projects</a></li>
-          <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">
+              LinkedIn
+            </a>
+          </li>
         </ul>
       </nav>
+
+      <button id="menu" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <section id="me-projects" class="section">
-    <div class="container">
+    <div class="banner">
       <h2>Engineering &amp; Design Projects</h2>
+    </div>
+    <div class="container">
 
       <!-- Graduate Machine Learning Projects -->
       <div class="project-category">
         <h3>Graduate Machine Learning Projects</h3>
+
         <div class="project-card">
           <div class="project-header">
             <span class="project-tags">Duration: 4 months</span>
@@ -114,7 +60,9 @@
               <li>Preprocessed and labeled Common Voice 12.0 data to enable flexible accent conditioning.</li>
               <li>Evaluated the model’s performance using objective metrics and a human Mean Opinion Score survey.</li>
             </ul>
-            <a href="reports/GenAI_TTS_Project.pdf" class="download-link" target="_blank">Download report</a>
+            <a href="reports/GenAI_TTS_Project.pdf" class="download-link" target="_blank">
+              Download report
+            </a>
           </div>
         </div>
       </div>
@@ -141,7 +89,9 @@
               <li>Ran parametric height-to-width sweeps, finding the 10×20 configuration reduced re-entrainment most effectively.</li>
               <li>Visualized flow fields and concentration maps to recommend geometry changes for lower turbulence.</li>
             </ul>
-            <a href="reports/CFD_project_report.pdf" class="download-link" target="_blank">Download report</a>
+            <a href="reports/CFD_project_report.pdf" class="download-link" target="_blank">
+              Download report
+            </a>
           </div>
         </div>
 
@@ -163,7 +113,9 @@
               <li>Prototyped and reinforced the structure, upgrading from servos to stepper motors.</li>
               <li>Implemented a Raspberry Pi–to–Arduino control pipeline for autonomous targeting and dispensing.</li>
             </ul>
-            <a href="reports/EMSD_report.pdf" class="download-link" target="_blank">Download report</a>
+            <a href="reports/EMSD_report.pdf" class="download-link" target="_blank">
+              Download report
+            </a>
           </div>
         </div>
       </div>
@@ -190,7 +142,9 @@
               <li>3D-printed and iterated components after user testing to refine fit and functionality.</li>
               <li>Incorporated adjustable straps and stops for various hand sizes and torque limits.</li>
             </ul>
-            <a href="reports/Design1_Assistive.pdf" class="download-link" target="_blank">Download report</a>
+            <a href="reports/Design1_Assistive.pdf" class="download-link" target="_blank">
+              Download report
+            </a>
           </div>
         </div>
 
@@ -212,25 +166,13 @@
               <li>Engineered a backlash-free pan/tilt head using preloaded bearings for smooth motion.</li>
               <li>Conducted cost analysis to balance material choice between weight and budget.</li>
             </ul>
-            <a href="reports/design2_report.pdf" class="download-link" target="_blank">Download report</a>
+            <a href="reports/design2_report.pdf" class="download-link" target="_blank">
+              Download report
+            </a>
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
-  <script>
-    document.querySelectorAll('.toggle-more').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const card = btn.closest('.project-card');
-        const sum  = card.querySelector('.summary');
-        const img  = card.querySelector('img');
-        const active = sum.classList.toggle('active');
-        btn.textContent = active ? 'Less info' : 'More info';
-        img.style.width = active ? '100%' : '150px';
-      });
-    });
-  </script>
 </body>
 </html>

@@ -5,164 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Work Experience | Shawn Krishnan</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    :root {
-      --bg: #0f0f0f;
-      --card: #1a1a1a;
-      --accent: #d4af37;
-      --text-light: #f5f5f5;
-      --text-muted: #888;
-      --bullet: #f5f5f5;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text-light);
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-    }
-    header, footer {
-      background: #111;
-      padding: 1rem 0;
-    }
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      color: var(--text-light);
-      font-size: 1.5rem;
-      text-decoration: none;
-      font-family: 'Eyeglass Normal', serif;
-    }
-    nav#header-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav#header-nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav#header-nav a.active,
-    nav#header-nav a:hover {
-      color: var(--text-light);
-    }
-
-    /* NEW: full-width banner for the section title */
-    #experience .banner {
-      background: var(--card);
-      box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
-      padding: 1.5rem 0;
-    }
-    #experience .banner h2 {
-      margin: 0;
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 2.25rem;
-      color: var(--accent);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-    }
-
-    .section {
-      padding-bottom: 2rem;
-    }
-    .resume-container {
-      max-height: 75vh;
-      overflow-y: auto;
-      padding: 1rem 0 0 0;
-    }
-    .job {
-      display: flex;
-      background: var(--card);
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      align-items: stretch;
-    }
-    .job::before {
-      content: '';
-      width: 6px;
-      background: var(--accent);
-    }
-    .company-block {
-      width: 200px;
-      background: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      gap: .75rem;
-    }
-    .job-logo {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      background: #fff;
-      padding: 4px;
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-    .company-btn {
-      background: var(--accent);
-      color: #111;
-      border: none;
-      border-radius: 20px;
-      padding: .5rem 1rem;
-      font-family: 'Eyeglass Normal', serif;
-      font-size: .9rem;
-      text-transform: uppercase;
-      pointer-events: none;
-    }
-    .job-content {
-      padding: 1rem 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .job-content h3 {
-      font-family: 'Eyeglass Normal', serif;
-      font-size: 1.25rem;
-      margin: 0;
-      color: var(--accent);
-    }
-    .job-meta {
-      margin: .5rem 0 1rem;
-      font-size: .85rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .job-content ul {
-      list-style: none;
-      padding-left: 1rem;
-      margin: 0;
-      flex: 1;
-    }
-    .job-content ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: .75rem;
-      line-height: 1.5;
-    }
-    .job-content ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--bullet);
-    }
-    footer .center { text-align:center; padding:1rem 0; color: var(--text-muted); }
-  </style>
+  <script src="global.js" defer></script>
 </head>
 
 <body>
@@ -179,11 +22,11 @@
           <li><a href="https://www.linkedin.com/in/shawnkrishnan/" target="_blank">LinkedIn</a></li>
         </ul>
       </nav>
+      <button id="menu" aria-label="Toggle navigation">☰</button>
     </div>
   </header>
 
   <section id="experience" class="section">
-    <!-- full-width banner -->
     <div class="banner">
       <h2>Professional Work Experience</h2>
     </div>
@@ -194,8 +37,7 @@
         <!-- DocuSlides -->
         <div class="job">
           <div class="company-block">
-            <!-- placeholder -->
-            <div style="width:48px; height:48px;"></div>
+            <div class="job-logo--placeholder"></div>
             <button class="company-btn">DocuSlides</button>
           </div>
           <div class="job-content">
@@ -212,7 +54,7 @@
           </div>
         </div>
 
-        <!-- CMU Mechanical AI Lab -->
+        <!-- CMU MAIL Lab -->
         <div class="job">
           <div class="company-block">
             <img src="images/cmu.jpg" alt="CMU logo" class="job-logo">
@@ -225,13 +67,13 @@
               <span>Pittsburgh, PA</span>
             </div>
             <ul>
-              <li>Benchmarking PINN and deep-learning methods on physics-informed PDE suites.</li>
+              <li>Benchmarking PINN and deep-learning methods on physics-informed PDE foundational models.</li>
               <li>Designed simulation pipelines and analyzed error vs. inference-time trade-offs.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Comtech Telecommunications -->
+        <!-- Comtech -->
         <div class="job">
           <div class="company-block">
             <img src="images/comtech.jpg" alt="Comtech logo" class="job-logo">
@@ -245,13 +87,13 @@
             </div>
             <ul>
               <li>Built AWS Lambda NLP pipelines for 911-call severity classification.</li>
-              <li>Integrated Naive Bayes & CNN models into PSAP API workflows.</li>
+              <li>Integrated Naive Bayes classification models into PSAP API workflows.</li>
               <li>Packaged enriched call data via Flask services for emergency dispatch systems.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Ingredion Incorporated -->
+        <!-- Ingredion -->
         <div class="job">
           <div class="company-block">
             <img src="images/ingredion.png" alt="Ingredion logo" class="job-logo">
@@ -264,14 +106,14 @@
               <span>Bridgewater, NJ</span>
             </div>
             <ul>
-              <li>Analyzed Salesforce data to uncover 38% new sales opportunities.</li>
+              <li>Analyzed Salesforce data to uncover 38% increase in new sales volume.</li>
               <li>Presented market insights to executives and account managers.</li>
               <li>Supported client engagements, improving startup partner retention.</li>
             </ul>
           </div>
         </div>
 
-        <!-- CMU Teaching Assistant -->
+        <!-- CMU TA -->
         <div class="job">
           <div class="company-block">
             <img src="images/cmu.jpg" alt="CMU logo" class="job-logo">
@@ -284,8 +126,8 @@
               <span>Pittsburgh, PA</span>
             </div>
             <ul>
-              <li>Facilitated labs and graded assignments for AI, design, and thermodynamics courses.</li>
-              <li>Organized office hours and supported over 150 students.</li>
+              <li>Facilitated labs and graded assignments for Mechanical Engineering, Design, and Thermodynamics courses.</li>
+              <li>Supported over 150 students.</li>
             </ul>
           </div>
         </div>

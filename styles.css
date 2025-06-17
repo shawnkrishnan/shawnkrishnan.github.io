@@ -16,29 +16,30 @@
   --bg: #000000;
   --overlay: rgba(0,0,0,0.7);
   --card-bg: #121212;
+  --card: #1a1a1a;
+  --accent: #DAA520;
   --text-light: #F5F5F5;
   --text-muted: #AAAAAA;
-  --accent: #DAA520;
+  --bullet: #F5F5F5;
   --transition: 0.3s ease;
 }
 
+/*─────────────────────────────────────────────────────────────────
+  2. GLOBAL RESET & TYPOGRAPHY
+─────────────────────────────────────────────────────────────────*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
-/*─────────────────────────────────────────────────────────────────
-  2. BODY
-─────────────────────────────────────────────────────────────────*/
 body {
   background: var(--bg);
   color: var(--text-light);
-  font-family: 'Helvetica Neue Ultra Light', Helvetica, Arial, sans-serif;
+  /* switch to Inter for primary text */
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -46,7 +47,6 @@ body {
 /*─────────────────────────────────────────────────────────────────
   3. HEADER / NAVIGATION
 ─────────────────────────────────────────────────────────────────*/
-/* HEADER */
 header {
   position: sticky;
   top: 0;
@@ -59,12 +59,9 @@ header {
   width: 100%;
   padding: 2rem 0;
 }
-
 header.scrolled {
-  background: var(--bg);
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-
 header .container {
   display: flex;
   justify-content: space-between;
@@ -73,8 +70,6 @@ header .container {
   max-width: clamp(300px, 95vw, 2000px);
   margin: 0 auto;
 }
-
-/* LOGO */
 .logo {
   font-family: 'Eyeglass Normal', serif;
   font-size: 2.5rem;
@@ -83,11 +78,13 @@ header .container {
   white-space: nowrap;
   margin-right: 4rem;
 }
-
-/* NAV */
 .nav-wrapper {
   display: flex;
   justify-content: flex-end;
+}
+nav#header-nav {
+  position: relative;
+  transition: right var(--transition);
 }
 nav#header-nav ul {
   display: flex;
@@ -110,17 +107,28 @@ nav#header-nav a.active {
   color: #121212;
 }
 
-/* HAMBURGER BUTTON */
+/*─────────────────────────────────────────────────────────────────
+  4. HAMBURGER BUTTON
+─────────────────────────────────────────────────────────────────*/
+#menu,
 #menu-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
+@media (max-width: 768px) {
+  /* show hamburger on mobile */
+  #menu,
+  #menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+#menu .bar,
 #menu-toggle .bar {
   width: 100%;
   height: 3px;
@@ -130,7 +138,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  4. HERO SECTION
+  5. HERO SECTION
 ─────────────────────────────────────────────────────────────────*/
 .hero {
   height: 100vh;
@@ -182,7 +190,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  5. SECTION BASE STYLE
+  6. SECTION BASE & CONTAINER
 ─────────────────────────────────────────────────────────────────*/
 .section {
   background: var(--bg);
@@ -195,7 +203,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  SECTION HEADINGS
+  7. SECTION HEADINGS
 ─────────────────────────────────────────────────────────────────*/
 .section h2 {
   font-family: 'Eyeglass Normal', serif;
@@ -205,16 +213,12 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  ABOUT / CAROUSEL
+  8. ABOUT PAGE STYLES
 ─────────────────────────────────────────────────────────────────*/
 #about h2 {
-  font-family: 'Eyeglass Normal', serif;
-  font-size: 2rem;
-  color: var(--accent);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .1em;
-  margin-bottom: 1rem;
 }
 #about p {
   font-size: 1.25rem;
@@ -222,7 +226,7 @@ nav#header-nav a.active {
   margin-bottom: 1rem;
 }
 
-/* Animated scrolling strip */
+/* animated photo strip */
 .image-strip {
   overflow: hidden;
 }
@@ -237,7 +241,7 @@ nav#header-nav a.active {
 }
 .strip-item img {
   width: 100%;
-  height: 160px;
+  height: auto;
   object-fit: cover;
   border: 4px solid var(--accent);
   border-radius: 8px;
@@ -258,7 +262,127 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  PROJECT CARD (accordion + tags + images)
+  9. PDF RESUME CANVAS (About page)
+─────────────────────────────────────────────────────────────────*/
+#resume canvas {
+  display: block;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/*─────────────────────────────────────────────────────────────────
+  10. EXPERIENCE PAGE STYLES
+─────────────────────────────────────────────────────────────────*/
+/* banner */
+.banner {
+  background: var(--card);
+  box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+}
+.banner h2 {
+  margin: 0;
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 2.25rem;
+  color: var(--accent);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+
+/* job cards */
+.resume-container {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-top: 1rem;
+}
+.job {
+  display: flex;
+  background: var(--card);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  align-items: stretch;
+}
+.job::before {
+  content: '';
+  width: 6px;
+  background: var(--accent);
+}
+.company-block {
+  width: 200px;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: .75rem;
+}
+.job-logo,
+.job-logo--placeholder {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  padding: 4px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  object-fit: contain;
+}
+.company-btn {
+  background: var(--accent);
+  color: #111;
+  border: none;
+  border-radius: 20px;
+  padding: .5rem 1rem;
+  font-family: 'Eyeglass Normal', serif;
+  font-size: .9rem;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.job-content {
+  padding: 1rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.job-content h3 {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 0 0 .5rem;
+}
+.job-meta {
+  font-size: .85rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.job-content ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+  flex: 1;
+}
+.job-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: .75rem;
+  line-height: 1.5;
+}
+.job-content ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--bullet);
+}
+
+/*─────────────────────────────────────────────────────────────────
+  11. PROJECT CARDS (Me-Projects page)
 ─────────────────────────────────────────────────────────────────*/
 .project-card {
   border: 1px solid var(--accent);
@@ -321,37 +445,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  IMPORT SERIF FONT FOR BODY TEXT
-─────────────────────────────────────────────────────────────────*/
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
-
-/*─────────────────────────────────────────────────────────────────
-  UNIVERSAL SECTION BODY TEXT
-─────────────────────────────────────────────────────────────────*/
-.section p,
-#about p,
-.project p,
-.blog-list li span,
-footer a {
-  font-family: 'Merriweather', serif;
-  font-size: 1rem;
-  color: var(--text-light);
-}
-
-/*─────────────────────────────────────────────────────────────────
-  EXPERIENCE LISTS
-─────────────────────────────────────────────────────────────────*/
-#experience .job ul {
-  list-style: disc inside;
-  font-family: 'Merriweather', serif;
-  margin-top: 0.5em;
-}
-#experience .job li {
-  margin-bottom: 1em;
-}
-
-/*─────────────────────────────────────────────────────────────────
-  BLOG LIST
+  12. BLOG LIST
 ─────────────────────────────────────────────────────────────────*/
 .blog-list {
   list-style: none;
@@ -370,7 +464,7 @@ footer a {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  PUBLICATIONS LIST
+  13. PUBLICATIONS GRID
 ─────────────────────────────────────────────────────────────────*/
 .publication-grid {
   display: grid;
@@ -408,7 +502,7 @@ footer a {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  LINKEDIN BUTTON
+  14. LINKEDIN BUTTON (Contact section)
 ─────────────────────────────────────────────────────────────────*/
 #contact .btn-linkedin {
   display: inline-flex;
@@ -426,7 +520,7 @@ footer a {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  FOOTER
+  15. FOOTER
 ─────────────────────────────────────────────────────────────────*/
 footer {
   background: var(--bg);
@@ -438,59 +532,222 @@ footer {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  12. RESPONSIVE + MOBILE NAV DRAWER
+  16. RESPONSIVE / MOBILE NAV DRAWER
 ─────────────────────────────────────────────────────────────────*/
-/*───────────────────────────────────────────────────────────────
-  MOBILE OPTIMIZATIONS (≤768px)
-───────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
-
-  /* 1) Reduce header padding & show hamburger */
+  /* header & container tweaks */
   header {
-    padding: 1rem;
+    padding: 1rem 0;
   }
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* hamburger */
+  #menu,
   #menu-toggle {
     display: flex;
   }
-  /* Slide-in nav drawer full width */
+
+  /* slide-in nav */
   nav#header-nav {
-    width: 100%;
+    position: fixed;
+    top: 0;
     right: -100%;
+    height: 100vh;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  nav#header-nav.open {
+    right: 0;
+  }
+  nav#header-nav ul {
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  /* 2) Shrink about text */
+  /* about adjustments */
+  #about h2 {
+    font-size: 1.5rem;
+  }
   #about p {
     font-size: 1.1rem;
     line-height: 1.4;
   }
-  #about h2 {
-    font-size: 1.5rem;
-  }
 
-  /* 3) Scale down the photo strip */
+  /* strip adjustments */
   .strip-item {
-    flex: 0 0 40%;       /* item takes 40% of viewport width */
+    flex: 0 0 40%;
     margin-right: .5rem;
   }
-  .strip-item img {
-    width: 100%;         /* fluid within its flex box */
-    height: auto;
-  }
   .strip-inner {
-    width: calc((40vw + .5rem) * 6); /* 6 items */
+    width: calc((40vw + .5rem) * 6);
   }
   @keyframes scroll-left {
     to { transform: translateX(calc(-1 * (40vw + .5rem) * 3)); }
   }
 
-  /* 4) Resize resume canvas container */
+  /* resume canvas */
   #resume canvas {
-    width: 100% !important;  /* fill mobile width */
-    height: auto !important; /* maintain aspect */
+    width: 100% !important;
+    height: auto !important;
   }
+}
+/*─────────────────────────────────────────────────────────────────
+   17. PUBLICATIONS GRID
+─────────────────────────────────────────────────────────────────*/
+.publication-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 700px) {
+  .publication-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-  /* 5) Stack everything with comfortable padding */
-  .container {
-    padding: 0 1rem;
-  }
+.pub-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.pub-image {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.pub-title {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.pub-authors,
+.pub-lab,
+.pub-prof,
+.pub-venue,
+.pub-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.pub-links a {
+  margin-right: 1rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.learn-more {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.learn-more:hover {
+  text-decoration: underline;
+}
+/*─────────────────────────────────────────────────────────────────
+   PROJECT CARDS
+─────────────────────────────────────────────────────────────────*/
+.project-category {
+  margin-top: 3rem;
+}
+.project-category h3 {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.project-card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.project-title {
+  font-family: 'Eyeglass Normal', serif;
+  font-size: 1.3rem;
+  color: var(--text-light);
+}
+.project-tags,
+.project-meta {
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+.project-short {
+  margin-bottom: .5rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+.project-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+  transition: width var(--transition);
+  cursor: pointer;
+  margin-bottom: .5rem;
+}
+.toggle-more {
+  align-self: flex-start;
+  padding: .4rem .8rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: .3rem;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.toggle-more:hover {
+  background: #c2942d;
+}
+/* summary */
+.summary {
+  display: none;
+  margin-top: 1rem;
+  font-family: 'Merriweather', serif;
+  color: var(--text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.summary.active {
+  display: block;
+}
+.summary ul {
+  list-style: disc inside;
+  margin: 0;
+  padding-left: 1rem;
+}
+.summary li {
+  margin-bottom: .5rem;
+}
+.download-link {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .4rem .8rem;
+  background: var(--accent);
+  color: #000;
+  text-decoration: none;
+  border-radius: .3rem;
+  font-weight: bold;
+  transition: background var(--transition);
+}
+.download-link:hover {
+  background: #c2942d;
 }
