@@ -7,17 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('menuBtn =', menuBtn, 'nav =', nav);
   
     if (menuBtn && nav) {
-      menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent the document click handler from immediately closing it
+      menuBtn.addEventListener('click', e => {
+        e.stopPropagation(); // prevent outside-click handler from immediately closing it
         console.log('hamburger clicked');
         nav.classList.toggle('open');
         console.log('nav classes:', nav.className);
       });
     }
   
-    // close the mobile nav if you click anywhere outside the nav or hamburger
-    document.addEventListener('click', (e) => {
-      const isClickOnHamburger  = menuBtn.contains(e.target);
+    // close the mobile nav if you click outside the nav or hamburger
+    document.addEventListener('click', e => {
+      const isClickOnHamburger = menuBtn && menuBtn.contains(e.target);
+      const isClickInsideNav    = nav && nav.contains(e.target);
   
       if (nav.classList.contains('open') && !isClickInsideNav && !isClickOnHamburger) {
         console.log('click outside, closing nav');
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggles = document.querySelectorAll('.toggle-more');
     console.log('toggle-more buttons =', toggles.length);
     toggles.forEach(btn => {
-      btn.addEventListener('click', () => {
+      const toggleFn = () => {
         const card    = btn.closest('.project-card');
         const summary = card.querySelector('.summary');
         const img     = card.querySelector('img');
@@ -68,6 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
         btn.textContent = open ? 'Less info' : 'More info';
         if (img) img.style.width = open ? '100%' : '150px';
+      };
+  
+      btn.addEventListener('click', toggleFn);
+      btn.addEventListener('touchend', e => {
+        e.preventDefault();
+        toggleFn();
       });
     });
   });
