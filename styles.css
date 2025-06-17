@@ -40,6 +40,7 @@
 }
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   background: var(--bg);
@@ -49,14 +50,11 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
-html {
-  -webkit-text-size-adjust: 100%;
-}
 
-/* explicitly style the hamburger button so it never falls back to a tiny system font */
+/* explicitly style the hamburger so it never falls back to a tiny font */
 #menu {
   font-family: 'Eyeglass Normal', serif;
-  font-size: 2.5rem;    /* or bump to 3rem if you like */
+  font-size: 2.5rem;
   line-height: 1;
 }
 
@@ -142,6 +140,8 @@ nav#header-nav a.active {
     background: none;
     border: none;
     cursor: pointer;
+    position: relative;
+    z-index: 1001; /* above nav */
   }
 }
 #menu .bar,
@@ -157,7 +157,9 @@ nav#header-nav a.active {
   5. HERO SECTION
 ─────────────────────────────────────────────────────────────────*/
 .hero {
-  height: 100vh;
+  /* use safe viewport height on iOS */
+  min-height: 100vh;
+  height: 100svh;
   background: url('images/new-york-cityscape-uhd-4k-wallpaper.jpg') center/cover no-repeat;
   position: relative;
   display: flex;
@@ -287,7 +289,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  10. GLOBAL BANNER STYLE
+ 10. GLOBAL BANNER STYLE
 ─────────────────────────────────────────────────────────────────*/
 .banner {
   background: var(--card);
@@ -306,9 +308,8 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  11. EXPERIENCE PAGE STYLES
+ 11. EXPERIENCE PAGE STYLES
 ─────────────────────────────────────────────────────────────────*/
-/* job cards */
 .resume-container {
   max-height: 75vh;
   overflow-y: auto;
@@ -399,7 +400,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  12. PROJECT CARDS (Me-Projects page)
+ 12. PROJECT CARDS (Me-Projects page)
 ─────────────────────────────────────────────────────────────────*/
 .project-category {
   margin-top: 3rem;
@@ -466,7 +467,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  13. BLOG LIST
+ 13. BLOG LIST
 ─────────────────────────────────────────────────────────────────*/
 .blog-list {
   list-style: none;
@@ -485,7 +486,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  14. PUBLICATIONS GRID
+ 14. PUBLICATIONS GRID
 ─────────────────────────────────────────────────────────────────*/
 .publication-grid {
   display: grid;
@@ -541,7 +542,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  15. LINKEDIN BUTTON (Contact section)
+ 15. LINKEDIN BUTTON (Contact section)
 ─────────────────────────────────────────────────────────────────*/
 #contact .btn-linkedin {
   display: inline-flex;
@@ -559,7 +560,7 @@ nav#header-nav a.active {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  16. FOOTER
+ 16. FOOTER
 ─────────────────────────────────────────────────────────────────*/
 footer {
   background: var(--bg);
@@ -571,7 +572,7 @@ footer {
 }
 
 /*─────────────────────────────────────────────────────────────────
-  17. RESPONSIVE / MOBILE NAV DRAWER & HERO ADJUSTMENTS
+ 17. RESPONSIVE / MOBILE NAV DRAWER & HERO ADJUSTMENTS
 ─────────────────────────────────────────────────────────────────*/
 @media (max-width: 768px) {
   /* header & container tweaks */
@@ -603,13 +604,14 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    height: 100vh;
+    bottom: 0;
     background: var(--bg);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     transition: right var(--transition);
+    z-index: 1000;
   }
   nav#header-nav.open {
     right: 0;
@@ -621,19 +623,19 @@ footer {
 
   /* hero section adjustments */
   .logo {
-    font-size: 1.5rem;    /* smaller logo */
-    margin-right: 1rem;   /* less gap before nav */
+    font-size: 1.5rem;
+    margin-right: 1rem;
   }
   .hero h1 {
-    font-size: 3rem;      /* down from 5rem */
+    font-size: 3rem;
     letter-spacing: 0.05em;
   }
   .hero p {
-    font-size: 1rem;      /* down from 1.25rem */
+    font-size: 1rem;
     margin-bottom: 1rem;
   }
   .hero .hero-content {
-    padding: 0 1rem;      /* reduce side padding */
+    padding: 0 1rem;
   }
   .hero .btn {
     padding: 0.5em 1em;
@@ -667,15 +669,13 @@ footer {
     height: auto !important;
   }
 
-  /*─────────────────────────────────────────────────────────────────
-    WORK EXPERIENCE MOBILE FIX
-  ──────────────────────────────────────────────────────────────────*/
+  /* work experience mobile fix */
   .job {
-    flex-direction: column; /* stack company and content */
+    flex-direction: column;
   }
   .company-block {
-    width: 100%;            /* full width */
-    flex-direction: row;    /* inline items */
+    width: 100%;
+    flex-direction: row;
     justify-content: flex-start;
     padding: 0.5rem 1rem;
   }

@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // close the mobile nav if you click anywhere outside the nav or hamburger
     document.addEventListener('click', (e) => {
-      const isClickInsideNav    = nav.contains(e.target);
       const isClickOnHamburger  = menuBtn.contains(e.target);
   
       if (nav.classList.contains('open') && !isClickInsideNav && !isClickOnHamburger) {
